@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xmlns:web="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd http://xmlns.jcp.org/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="5.0">
+  <display-name>signup</display-name>
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
+  <servlet>
+    <description></description>
+    <display-name>ResertrationServlet</display-name>
+    <servlet-name>ResertrationServlet</servlet-name>
+    <servlet-class>com.techweb.registeration.ResertrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ResertrationServlet</servlet-name>
+    <url-pattern>/ResertrationServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Loginservlet</display-name>
+    <servlet-name>Loginservlet</servlet-name>
+    <servlet-class>com.techweb.registeration.Loginservlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Loginservlet</servlet-name>
+    <url-pattern>/Loginservlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>logoutservlet</display-name>
+    <servlet-name>logoutservlet</servlet-name>
+    <servlet-class>com.techweb.registeration.logoutservlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>logoutservlet</servlet-name>
+    <url-pattern>/logoutservlet</url-pattern>
+  </servlet-mapping>
+</web-app>

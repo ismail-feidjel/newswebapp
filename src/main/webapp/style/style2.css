@@ -1,0 +1,143 @@
+:root{
+    /*variables for colors*/
+     /*----------------------------------------------------------------------------------------*/
+    --primary-color-h:252;
+    --dark-color-lightness:17%;
+    --light-color-lightness:90%;
+    --white-color-lightness:100%;
+
+    --white-color :hsl(252,30%,var(--white-color-lightness));
+    --light-color :hsl(252,30%,var(--light-color-lightness));
+    --gray-color :hsl(var(--primary-color-h),15%,65%);
+    --primary-color :hsl(var(--primary-color-h),75%,60%);
+    --secondary-color :hsl(252,100%,90%);
+    --success-color :hsl(120,95%,65%);
+    --danger-color :hsl(0,95%,65%);
+    --dark-color :hsl(252,30%,var(--dark-color-lightness));
+    --black-color :hsl(252,30%,10%);
+
+    --border-radius: 2rem;
+    --card-border-radius: 1rem;
+    --btn-padding: 0.6rem 2rem;
+    --search-padding: 0.6rem 1rem;
+    --card-padding: 1rem;
+
+    --stekey-topleft :5.4rem;
+    --stikey-topright :-7rem;
+     /*----------------------------------------------------------------------------------------*/
+}
+
+main .container{
+    display:  grid;
+    grid-template-columns: 18vw auto 0;
+    column-gap: 1rem;
+    position: relative;
+   
+}
+.container1 .heading{
+  font-size: 20px;
+  margin-bottom: 20px;
+  color:#334;
+}
+
+.container1 .box-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+  gap:10px;
+}
+
+.container1 .box-container .box{
+  background-color:var(--white-color); 
+  padding:3px;
+  border-radius: 5px;
+  box-shadow: 0 5px 10px rgba(0,0,0,.2);
+  display: none;
+  
+}
+
+.container1 .box-container .box:nth-child(1),
+.container1 .box-container .box:nth-child(2),
+.container1 .box-container .box:nth-child(3){
+  display:inline-block ;
+}
+
+.container1 .box-container .box .image{
+  margin-bottom: 10px;
+  overflow: hidden;
+  height: 200px;
+  border-radius: 5px;
+}
+
+.container1 .box-container .box .image img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.container1 .box-container .box:hover .image img{
+  transform: scale(1.2);
+  transition: 1s;
+  
+}
+
+.container1 .box-container .box .content h3{
+  
+  color:var(--dark-color);
+}
+
+.container1 .box-container .box .content p{
+
+  color:var(--dark-color);
+  line-height: 1;
+  padding:5px 0;
+}
+
+.container1 .box-container .box .content .btn{
+  display: inline-block;
+ 
+  border:1px solid #334;
+  color:var(--primary-color);
+  
+}
+
+.container1 .box-container .box .content .btn:hover{
+  background-color: crimson;
+  border-color: crimson;
+  color:var(--white-color);
+}
+
+.container1 .box-container .box .content .icons{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 8px;
+  padding-top: 15px;
+  border-top:1px solid #334;
+}
+
+.container1 .box-container .box .content .icons span{
+  
+  color:#777;
+}
+
+.container1 .box-container .box .content .icons span i{
+  color:crimson;
+  padding-right: 5px;
+}
+
+#load-more{
+  margin-top: 20px;
+  display: inline-block;
+  padding:13px 30px;
+  border:1px solid #334;
+  color:var(--dark-color);
+  cursor: pointer;
+}
+
+#load-more:hover{
+  background-color: crimson;
+  border-color: crimson;
+  color:var(--white-color);
+  transition: 1ms;
+}
+
