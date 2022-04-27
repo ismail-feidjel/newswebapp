@@ -1,3 +1,5 @@
+<% if(session.getAttribute("name")==null){ response.sendRedirect("login.jsp"); } %>
+    <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inter</title>
+    <title>settings</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
 </head>
@@ -23,15 +25,19 @@
                 <input type="search" placeholder="Search for creators,news">
 
             </div>
-            <div class="create">
-                <label class="btn btn-primary" for="create-post" onclick="openForm()">Join</label>
+               <div class="dropdown">
+                        <button style="border-radius: 8%;" class="btn ">
+                            <%=session.getAttribute("name")%>
+                                <i class="uil uil-angle-down"></i>
+                        </button>
+                        <div class="dropdown-content">
 
-                <a href="#" class="profile-picture" onclick="openFormprofile()">
-                    <img src="images/profile-1.jpg" class="img-fluid user-m rounded-circle" alt="" />
-                </a>
-
-                </div>
-            </div>
+                            <a href="#"><i class="uil uil-user"></i>Profile</a>
+                            <a href="#"><i class="uil uil-cog"></i>Settings</a>
+                            <a href="#"><i class="uil uil-question-circle"></i>Help</a>
+                            <a href="logout"><i class="uil uil-sign-out-alt"></i>Logout</a>
+                        </div>
+                    </div>
         </div>
     </nav>
 
@@ -42,130 +48,133 @@
             <div class="left">
                 <a class="profile">
                     <div class="profile-picture">
-                        <img src="/images/profile-1.jpg">
+                        <img src="../webapp/images/profile-1.jpg">
                     </div>
                     <div class="handle">
-                        <h4>Feidjel ISMAIL</h4>
+                        <h4><%=session.getAttribute("name")%></h4>
                         <p class="text-muted">
-                            @ISOU
+                            @<%=session.getAttribute("name")%>
                         </p>
                     </div>
                 </a>
-                <div class="sidebar">
-                    <a class="menu-item  " href="index.html">
-                        <span><i class="uil uil-football"></i></span>
-                        <h3>Sports</h3>
-                    </a>
-                    <a class="menu-item  " href="Technology.html">
-                        <span><i class="uil uil-robot"></i></span>
-                        <h3>Technologry</h3>
-                    </a>
-                    <a class="menu-item  " href="art.html">
-                        <span><i class="uil uil-palette"></i></span>
-                        <h3>Art</h3>
-                    </a>
-                
-                    <a class="menu-item " href="explore.html">
-                        <span><i class="uil uil-compass"></i></span>
-                        <h3>Explore Video
-                        </h3>
-                    </a>
-                    <a class="menu-item active " id="messages-notificatons" >
-                        <span><i class="uil uil-newspaper">
-                                <small class="notifications-count">6+</small>
-                            </i></span>
-                        <h3>Inter News</h3>
-                    </a>
-                
-                    <a class="menu-item  " id="notifications">
-                        <span><i class="uil uil-bell"><small class="notifications-count">9+</small></i></span>
-                        <h3>Notification</h3>
-                        <!--Notification bar-->
-                        <div class="notification-popup">
-                            <div>
-                                <div class="profile-picture">
-                                    <img src="/images/profile-1.jpg">
-                                </div>
-                                <div class="notification-body">
-                                    <b>Salah Ben </b> Posted new News
-                                    <br />
-                                    <small class="text-muted">12:12 yesterday</small>
-                                </div>
+            <div class="sidebar">
+                <a class="menu-item  " href="index.jsp">
+                    <span><i class="uil uil-football"></i></span>
+                    <h3>Sports</h3>
+                </a>
+                <a class="menu-item  " href="Technology.jsp">
+                    <span><i class="uil uil-robot"></i></span>
+                    <h3>Technologry</h3>
+                </a>
+                <a class="menu-item  " href="art.jsp">
+                    <span><i class="uil uil-palette"></i></span>
+                    <h3>Art</h3>
+                </a>
+            
+                <a class="menu-item " href="explore.jsp">
+                    <span><i class="uil uil-compass"></i></span>
+                    <h3>Explore Video
+                    </h3>
+                </a>
+                <a class="menu-item  " id="messages-notificatons" href="inter.jsp">
+                    <span><i class="uil uil-newspaper">
+                            <small class="notifications-count">6+</small>
+                        </i></span>
+                    <h3>Inter News</h3>
+                </a>
+            
+                <a class="menu-item  " id="notifications">
+                    <span><i class="uil uil-bell"><small class="notifications-count">9+</small></i></span>
+                    <h3>Notification</h3>
+                    <!--Notification bar-->
+                    <div class="notification-popup">
+                        <div>
+                            <div class="profile-picture">
+                                <img src="../webapp/images/profile-1.jpg">
                             </div>
-                            <div>
-                                <div class="profile-picture">
-                                    <img src="/images/profile-1.jpg">
-                                </div>
-                                <div class="notification-body">
-                                    <b>samir Ben </b> Posted new News
-                                    <br />
-                                    <small class="text-muted">12:00 yesterday</small>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="profile-picture">
-                                    <img src="/images/profile-3.jpg">
-                                </div>
-                                <div class="notification-body">
-                                    <b>samir Ben </b> Posted new News
-                                    <br />
-                                    <small class="text-muted">12:12 yesterday</small>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="profile-picture">
-                                    <img src="/images/profile-4.jpg">
-                                </div>
-                                <div class="notification-body">
-                                    <b>samir Ben </b> Posted new News
-                                    <br />
-                                    <small class="text-muted">12:12 yesterday</small>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="profile-picture">
-                                    <img src="/images/profile-1.jpg">
-                                </div>
-                                <div class="notification-body">
-                                    <b>samir</b> Posted new News
-                                    <br />
-                                    <small class="text-muted">12:12 yesterday</small>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="profile-picture">
-                                    <img src="/images/profile-2.jpg">
-                                </div>
-                                <div class="notification-body">
-                                    <b>samir Ben </b> Posted new News
-                                    <br />
-                                    <small class="text-muted">12:12 yesterday</small>
-                                </div>
+                            <div class="notification-body">
+                                <b>Salah Ben </b> Posted new News
+                                <br />
+                                <small class="text-muted">12:12 yesterday</small>
                             </div>
                         </div>
-                
-                
-                    </a>
-                
-                
-                    <a class="menu-item  " href="Analyses.html">
-                        <span><i class="uil uil-analysis"></i></span>
-                        <h3>Analytis</h3>
-                    </a>
-                    <a class="menu-item " id="theme">
-                        <span><i class="uil uil-paint-tool"></i></span>
-                        <h3>Theme</h3>
-                    </a>
-                    <a class="menu-item " href="settings.html">
-                        <span><i class="uil uil-sliders-v"></i></span>
-                        <h3>Settings</h3>
-                    </a>
-                
-                </div>
+                        <div>
+                            <div class="profile-picture">
+                                <img src="../webapp/images/profile-1.jpg">
+                            </div>
+                            <div class="notification-body">
+                                <b>samir Ben </b> Posted new News
+                                <br />
+                                <small class="text-muted">12:00 yesterday</small>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="profile-picture">
+                                <img src="../webapp/images/profile-3.jpg">
+                            </div>
+                            <div class="notification-body">
+                                <b>samir Ben </b> Posted new News
+                                <br />
+                                <small class="text-muted">12:12 yesterday</small>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="profile-picture">
+                                <img src="../webapp/images/profile-4.jpg">
+                            </div>
+                            <div class="notification-body">
+                                <b>samir Ben </b> Posted new News
+                                <br />
+                                <small class="text-muted">12:12 yesterday</small>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="profile-picture">
+                                <img src="../webapp/images/profile-1.jpg">
+                            </div>
+                            <div class="notification-body">
+                                <b>samir</b> Posted new News
+                                <br />
+                                <small class="text-muted">12:12 yesterday</small>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="profile-picture">
+                                <img src="../webapp/images/profile-2.jpg">
+                            </div>
+                            <div class="notification-body">
+                                <b>samir Ben </b> Posted new News
+                                <br />
+                                <small class="text-muted">12:12 yesterday</small>
+                            </div>
+                        </div>
+                    </div>
+            
+            
+                </a>
+            
+            
+                <a class="menu-item  " href="Analyses.jsp">
+                    <span><i class="uil uil-analysis"></i></span>
+                    <h3>Analytis</h3>
+                </a>
+                <a class="menu-item " id="theme">
+                    <span><i class="uil uil-paint-tool"></i></span>
+                    <h3>Theme</h3>
+                </a>
+                <a class="menu-item active " >
+                    <span><i class="uil uil-sliders-v"></i></span>
+                    <h3>Settings</h3>
+                </a>
+            
+            </div>
                 <!--end of side bar------------------->
-                <label class="logout" for="create-post" onclick="openForm()"><i class="uil uil-sign-out-alt"></i></label>
-                
-
+            <a href="#">
+                <button class="btn btn-primary" onclick="openForm()">
+                    Signout(<%=session.getAttribute("name")%>)
+                        <i class="uil uil-sign-out-alt"></i>
+                </button>
+            </a>
     
             </div>
             <!--middle------------------->
@@ -233,7 +242,7 @@
                                 </div>
                             </div>
                             <div class="photo">
-                                <img src="/images/feed-5.jpg" alt="">
+                                <img src="../webapp/images/feed-5.jpg" alt="">
                             </div>
                             <div class="action-buttons">
                                 <div class="interaction-buttons">
@@ -246,9 +255,9 @@
                                 </div>
                             </div>
                             <div class="liked-by">
-                                <span><img src="/images/profile-8.jpg" alt=""></span>
-                                <span><img src="/images/profile-8.jpg" alt=""></span>
-                                <span><img src="/images/profile-8.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
                                 <p>Liked by <b>Feidjel ismail</b> and
                                 233 other
                                 </p>
@@ -279,7 +288,7 @@
                                 </div>
                             </div>
                             <div class="photo">
-                                <img src="/images/feed-1.jpg" alt="">
+                                <img src="../webapp/images/feed-1.jpg" alt="">
                             </div>
                             <div class="action-buttons">
                                 <div class="interaction-buttons">
@@ -292,9 +301,9 @@
                                 </div>
                             </div>
                             <div class="liked-by">
-                                <span><img src="/images/profile-4.jpg" alt=""></span>
-                                <span><img src="/images/profile-4.jpg" alt=""></span>
-                                <span><img src="/images/profile-4.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
                                 <p>Liked by <b>Feidjel ismail</b> and
                                 233 other
                                 </p>
@@ -324,7 +333,7 @@
                     <!--the body ------------------->
                     <div class="message">
                         <div class="news-picture ">
-                            <img src="/images/profile-8.jpg">
+                            <img src="../webapp/images/profile-8.jpg">
                         </div>
                         <div class="message-body">
                             <h5 class=".aaa">El Djazair Daily - الجزائر دايلي</h5>
@@ -334,7 +343,7 @@
                     </div>
                     <div class="message">
                         <div class="news-picture ">
-                            <img src="/images/profile-8.jpg">
+                            <img src="../webapp/images/profile-8.jpg">
                         </div>
                         <div class="message-body">
                             <h5 class=".aaa">ISMAIL - الجزائر دايلي</h5>
@@ -344,7 +353,7 @@
                     </div>
                     <div class="message">
                         <div class="news-picture ">
-                            <img src="/images/profile-8.jpg">
+                            <img src="../webapp/images/profile-8.jpg">
                         </div>
                         <div class="message-body">
                             <h5 class=".aaa">SALAH - الجزائر دايلي</h5>
@@ -363,7 +372,7 @@
                     <div class="request">
                         <div class="info">
                             <div class="profile-picture">
-                                <img src="/images/profile-1.jpg" alt="">
+                                <img src="../webapp/images/profile-1.jpg" alt="">
                             </div>
                             <div>
                                 <h5>Hajia Omar</h5>
@@ -441,7 +450,7 @@
             
                 <div class="profile-card js-profile-card">
                     <div class="profile-card__img">
-                        <img src="/images/profile-1.jpg"
+                        <img src="../webapp/images/profile-1.jpg"
                             alt="profile card">
                     </div>
             
@@ -672,64 +681,7 @@
         
     </div>
 
-    <div class="customize-theme" id="loginform">
-            <div class="wrapper">
-                <div class="title-text">
-                    <div class="title login">
-                        LogIN Here
-                    </div>
-                    <div class="title signup">
-                       Create Account
-                    </div>
-                </div>
-                <div class="form-container">
-                    <div class="slide-container">
-                        <input type="radio" name="slide" id="login" checked>
-                        <input type="radio" name="slide" id="signup">
-                        <label for="login"  class="slide login">Login</label>
-                        <label for="signup" class="slide signup">Signup</label>
-                        <div class="slider-tab"></div>
-                    </div>
-                    <div class="form-inner">
-                        <form action="#" class="login">
-                            <div class="field">
-                                <input type="text" placeholder="Email Address" required>
-                            </div>
-                            <div class="field">
-                                <input type="password" placeholder="Password" required>
-                            </div>
-                            <div class="pass-link">
-                                <a href="#">Forgot password?</a>
-                            </div>
-                            <div class="field btn">
-                                <input type="submit" value="Login">
-                            </div>
-                            <div class="signup-link">
-                                Not a member? <a href="">Signup now</a>
-                            </div>
-                        </form>
-                        <form action="#" class="signup">
-                            <div class="field">
-                                <input type="text" placeholder="Email Address" required>
-                            </div>
-                            <div class="field">
-                                <input type="password" placeholder="Password" required>
-                            </div>
-                            <div class="field">
-                                <input type="password" placeholder="Confirm password" required>
-                            </div>
-                            <div class="field btn">
-                                <input type="submit" value="Signup">
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        
-    </div>
-
     
-
 
 
 
@@ -746,7 +698,16 @@
 
 
 
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="alert/dist/sweetalert.css">
+<script type="text/javascript">
+    function openForm() {
+        swal("Are you sure you want to Leave?", {
+            buttons: ["cancel", true],
+        });
+    }
 
+</script>
 
     <script src="script.js"></script>
 </body>

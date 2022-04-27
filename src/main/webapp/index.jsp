@@ -1,637 +1,908 @@
-<%
-if(session.getAttribute("name")==null){
-	
-	response.sendRedirect("login.jsp");
-}
-%>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-<meta name="description" content="" />
-<meta name="author" content="" />
-<title>Freelancer - Start Bootstrap Theme</title>
-<!-- Favicon-->
-<link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-<!-- Font Awesome icons (free version)-->
-<script src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
-	crossorigin="anonymous"></script>
-<!-- Google fonts-->
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700"
-	rel="stylesheet" type="text/css" />
-<link
-	href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic"
-	rel="stylesheet" type="text/css" />
-<!-- Core theme CSS (includes Bootstrap)-->
-<link href="css/index-styles.css" rel="stylesheet" />
-</head>
-<body id="page-top">
-	<!-- Navigation-->
-	<nav
-		class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top"
-		id="mainNav">
-		<div class="container">
-			<a class="navbar-brand" href="#page-top">Unique Developer</a>
-			<button
-				class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded"
-				type="button" data-bs-toggle="collapse"
-				data-bs-target="#navbarResponsive" aria-controls="navbarResponsive"
-				aria-expanded="false" aria-label="Toggle navigation">
-				Menu <i class="fas fa-bars"></i>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarResponsive">
-				<ul class="navbar-nav ms-auto">
-					<li class="nav-item mx-0 mx-lg-1"><a
-						class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Portfolio</a></li>
-					<li class="nav-item mx-0 mx-lg-1"><a
-						class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-					<li class="nav-item mx-0 mx-lg-1"><a
-						class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
-					<li class="nav-item mx-0 mx-lg-1"><a
-						class="nav-link py-3 px-0 px-lg-3 rounded" href="logout">Logout</a></li>
-					<li class="nav-item mx-0 mx-lg-1 bg-danger"><a
-						class="nav-link py-3 px-0 px-lg-3 rounded" href="logout"><%=session.getAttribute("name")%></a></li>
-					
-				</ul>
-			</div>
-		</div>
-	</nav>
-	<!-- Masthead-->
-	<header class="masthead bg-primary text-white text-center">
-		<div class="container d-flex align-items-center flex-column">
-			<!-- Masthead Avatar Image-->
-			<img class="masthead-avatar mb-5" src="assets/img/avataaars.svg"
-				alt="..." />
-			<!-- Masthead Heading-->
-			<h1 class="masthead-heading text-uppercase mb-0">Welcome To Unique Developer</h1>
-			<!-- Icon Divider-->
-			<div class="divider-custom divider-light">
-				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon">
-					<i class="fas fa-star"></i>
-				</div>
-				<div class="divider-custom-line"></div>
-			</div>
-			<!-- Masthead Subheading-->
-			<p class="masthead-subheading font-weight-light mb-0">Java
-				Development - Web Development - Python</p>
-		</div>
-	</header>
-	<!-- Portfolio Section-->
-	<section class="page-section portfolio" id="portfolio">
-		<div class="container">
-			<!-- Portfolio Section Heading-->
-			<h2
-				class="page-section-heading text-center text-uppercase text-secondary mb-0">Portfolio</h2>
-			<!-- Icon Divider-->
-			<div class="divider-custom">
-				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon">
-					<i class="fas fa-star"></i>
-				</div>
-				<div class="divider-custom-line"></div>
-			</div>
-			<!-- Portfolio Grid Items-->
-			<div class="row justify-content-center">
-				<!-- Portfolio Item 1-->
-				<div class="col-md-6 col-lg-4 mb-5">
-					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
-						data-bs-target="#portfolioModal1">
-						<div
-							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div
-								class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plus fa-3x"></i>
-							</div>
-						</div>
-						<img class="img-fluid" src="assets/img/portfolio/cabin.png"
-							alt="..." />
-					</div>
-				</div>
-				<!-- Portfolio Item 2-->
-				<div class="col-md-6 col-lg-4 mb-5">
-					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
-						data-bs-target="#portfolioModal2">
-						<div
-							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div
-								class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plus fa-3x"></i>
-							</div>
-						</div>
-						<img class="img-fluid" src="assets/img/portfolio/cake.png"
-							alt="..." />
-					</div>
-				</div>
-				<!-- Portfolio Item 3-->
-				<div class="col-md-6 col-lg-4 mb-5">
-					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
-						data-bs-target="#portfolioModal3">
-						<div
-							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div
-								class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plus fa-3x"></i>
-							</div>
-						</div>
-						<img class="img-fluid" src="assets/img/portfolio/circus.png"
-							alt="..." />
-					</div>
-				</div>
-				<!-- Portfolio Item 4-->
-				<div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
-						data-bs-target="#portfolioModal4">
-						<div
-							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div
-								class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plus fa-3x"></i>
-							</div>
-						</div>
-						<img class="img-fluid" src="assets/img/portfolio/game.png"
-							alt="..." />
-					</div>
-				</div>
-				<!-- Portfolio Item 5-->
-				<div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
-						data-bs-target="#portfolioModal5">
-						<div
-							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div
-								class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plus fa-3x"></i>
-							</div>
-						</div>
-						<img class="img-fluid" src="assets/img/portfolio/safe.png"
-							alt="..." />
-					</div>
-				</div>
-				<!-- Portfolio Item 6-->
-				<div class="col-md-6 col-lg-4">
-					<div class="portfolio-item mx-auto" data-bs-toggle="modal"
-						data-bs-target="#portfolioModal6">
-						<div
-							class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-							<div
-								class="portfolio-item-caption-content text-center text-white">
-								<i class="fas fa-plus fa-3x"></i>
-							</div>
-						</div>
-						<img class="img-fluid" src="assets/img/portfolio/submarine.png"
-							alt="..." />
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- About Section-->
-	<section class="page-section bg-primary text-white mb-0" id="about">
-		<div class="container">
-			<!-- About Section Heading-->
-			<h2
-				class="page-section-heading text-center text-uppercase text-white">About</h2>
-			<!-- Icon Divider-->
-			<div class="divider-custom divider-light">
-				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon">
-					<i class="fas fa-star"></i>
-				</div>
-				<div class="divider-custom-line"></div>
-			</div>
-			<!-- About Section Content-->
-			<div class="row">
-				<div class="col-lg-4 ms-auto">
-					<p class="lead">Freelancer is a free bootstrap theme created by
-						Start Bootstrap. The download includes the complete source files
-						including HTML, CSS, and JavaScript as well as optional SASS
-						stylesheets for easy customization.</p>
-				</div>
-				<div class="col-lg-4 me-auto">
-					<p class="lead">You can create your own custom avatar for the
-						masthead, change the icon in the dividers, and add your email
-						address to the contact form to make it fully functional!</p>
-				</div>
-			</div>
-			<!-- About Section Button-->
-			<div class="text-center mt-4">
-				<a class="btn btn-xl btn-outline-light"
-					href="https://startbootstrap.com/theme/freelancer/"> <i
-					class="fas fa-download me-2"></i> Free Download!
-				</a>
-			</div>
-		</div>
-	</section>
-	<!-- Contact Section-->
-	<section class="page-section" id="contact">
-		<div class="container">
-			<!-- Contact Section Heading-->
-			<h2
-				class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact
-				Me</h2>
-			<!-- Icon Divider-->
-			<div class="divider-custom">
-				<div class="divider-custom-line"></div>
-				<div class="divider-custom-icon">
-					<i class="fas fa-star"></i>
-				</div>
-				<div class="divider-custom-line"></div>
-			</div>
-			<!-- Contact Section Form-->
-			<div class="row justify-content-center">
-				<div class="col-lg-8 col-xl-7">
-					<!-- * * * * * * * * * * * * * * *-->
-					<!-- * * SB Forms Contact Form * *-->
-					<!-- * * * * * * * * * * * * * * *-->
-					<!-- This form is pre-integrated with SB Forms.-->
-					<!-- To make this form functional, sign up at-->
-					<!-- https://startbootstrap.com/solution/contact-forms-->
-					<!-- to get an API token!-->
-					<form id="contactForm" data-sb-form-api-token="API_TOKEN">
-						<!-- Name input-->
-						<div class="form-floating mb-3">
-							<input class="form-control" id="name" type="text"
-								placeholder="Enter your name..." data-sb-validations="required" />
-							<label for="name">Full name</label>
-							<div class="invalid-feedback" data-sb-feedback="name:required">A
-								name is required.</div>
-						</div>
-						<!-- Email address input-->
-						<div class="form-floating mb-3">
-							<input class="form-control" id="email" type="email"
-								placeholder="name@example.com"
-								data-sb-validations="required,email" /> <label for="email">Email
-								address</label>
-							<div class="invalid-feedback" data-sb-feedback="email:required">An
-								email is required.</div>
-							<div class="invalid-feedback" data-sb-feedback="email:email">Email
-								is not valid.</div>
-						</div>
-						<!-- Phone number input-->
-						<div class="form-floating mb-3">
-							<input class="form-control" id="phone" type="tel"
-								placeholder="(123) 456-7890" data-sb-validations="required" />
-							<label for="phone">Phone number</label>
-							<div class="invalid-feedback" data-sb-feedback="phone:required">A
-								phone number is required.</div>
-						</div>
-						<!-- Message input-->
-						<div class="form-floating mb-3">
-							<textarea class="form-control" id="message" type="text"
-								placeholder="Enter your message here..." style="height: 10rem"
-								data-sb-validations="required"></textarea>
-							<label for="message">Message</label>
-							<div class="invalid-feedback" data-sb-feedback="message:required">A
-								message is required.</div>
-						</div>
-						<!-- Submit success message-->
-						<!---->
-						<!-- This is what your users will see when the form-->
-						<!-- has successfully submitted-->
-						<div class="d-none" id="submitSuccessMessage">
-							<div class="text-center mb-3">
-								<div class="fw-bolder">Form submission successful!</div>
-								To activate this form, sign up at <br /> <a
-									href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-							</div>
-						</div>
-						<!-- Submit error message-->
-						<!---->
-						<!-- This is what your users will see when there is-->
-						<!-- an error submitting the form-->
-						<div class="d-none" id="submitErrorMessage">
-							<div class="text-center text-danger mb-3">Error sending
-								message!</div>
-						</div>
-						<!-- Submit Button-->
-						<button class="btn btn-primary btn-xl disabled" id="submitButton"
-							type="submit">Send</button>
-					</form>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- Footer-->
-	<footer class="footer text-center">
-		<div class="container">
-			<div class="row">
-				<!-- Footer Location-->
-				<div class="col-lg-4 mb-5 mb-lg-0">
-					<h4 class="text-uppercase mb-4">Location</h4>
-					<p class="lead mb-0">
-						2215 John Daniel Drive <br /> Clark, MO 65243
-					</p>
-				</div>
-				<!-- Footer Social Icons-->
-				<div class="col-lg-4 mb-5 mb-lg-0">
-					<h4 class="text-uppercase mb-4">Around the Web</h4>
-					<a class="btn btn-outline-light btn-social mx-1" href="#!"><i
-						class="fab fa-fw fa-facebook-f"></i></a> <a
-						class="btn btn-outline-light btn-social mx-1" href="#!"><i
-						class="fab fa-fw fa-twitter"></i></a> <a
-						class="btn btn-outline-light btn-social mx-1" href="#!"><i
-						class="fab fa-fw fa-linkedin-in"></i></a> <a
-						class="btn btn-outline-light btn-social mx-1" href="#!"><i
-						class="fab fa-fw fa-dribbble"></i></a>
-				</div>
-				<!-- Footer About Text-->
-				<div class="col-lg-4">
-					<h4 class="text-uppercase mb-4">About Freelancer</h4>
-					<p class="lead mb-0">
-						Freelance is a free to use, MIT licensed Bootstrap theme created
-						by <a href="http://startbootstrap.com">Start Bootstrap</a> .
-					</p>
-				</div>
-			</div>
-		</div>
-	</footer>
-	<!-- Copyright Section-->
-	<div class="copyright py-4 text-center text-white">
-		<div class="container">
-			<small>Copyright &copy; Your Website 2021</small>
-		</div>
-	</div>
-	<!-- Portfolio Modals-->
-	<!-- Portfolio Modal 1-->
-	<div class="portfolio-modal modal fade" id="portfolioModal1"
-		tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
-				<div class="modal-header border-0">
-					<button class="btn-close" type="button" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body text-center pb-5">
-					<div class="container">
-						<div class="row justify-content-center">
-							<div class="col-lg-8">
-								<!-- Portfolio Modal - Title-->
-								<h2
-									class="portfolio-modal-title text-secondary text-uppercase mb-0">Log
-									Cabin</h2>
-								<!-- Icon Divider-->
-								<div class="divider-custom">
-									<div class="divider-custom-line"></div>
-									<div class="divider-custom-icon">
-										<i class="fas fa-star"></i>
-									</div>
-									<div class="divider-custom-line"></div>
-								</div>
-								<!-- Portfolio Modal - Image-->
-								<img class="img-fluid rounded mb-5"
-									src="assets/img/portfolio/cabin.png" alt="..." />
-								<!-- Portfolio Modal - Text-->
-								<p class="mb-4">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Mollitia neque assumenda ipsam nihil,
-									molestias magnam, recusandae quos quis inventore quisquam velit
-									asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-									itaque. Nam.</p>
-								<button class="btn btn-primary" href="#!"
-									data-bs-dismiss="modal">
-									<i class="fas fa-times fa-fw"></i> Close Window
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Portfolio Modal 2-->
-	<div class="portfolio-modal modal fade" id="portfolioModal2"
-		tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
-				<div class="modal-header border-0">
-					<button class="btn-close" type="button" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body text-center pb-5">
-					<div class="container">
-						<div class="row justify-content-center">
-							<div class="col-lg-8">
-								<!-- Portfolio Modal - Title-->
-								<h2
-									class="portfolio-modal-title text-secondary text-uppercase mb-0">Tasty
-									Cake</h2>
-								<!-- Icon Divider-->
-								<div class="divider-custom">
-									<div class="divider-custom-line"></div>
-									<div class="divider-custom-icon">
-										<i class="fas fa-star"></i>
-									</div>
-									<div class="divider-custom-line"></div>
-								</div>
-								<!-- Portfolio Modal - Image-->
-								<img class="img-fluid rounded mb-5"
-									src="assets/img/portfolio/cake.png" alt="..." />
-								<!-- Portfolio Modal - Text-->
-								<p class="mb-4">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Mollitia neque assumenda ipsam nihil,
-									molestias magnam, recusandae quos quis inventore quisquam velit
-									asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-									itaque. Nam.</p>
-								<button class="btn btn-primary" href="#!"
-									data-bs-dismiss="modal">
-									<i class="fas fa-times fa-fw"></i> Close Window
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Portfolio Modal 3-->
-	<div class="portfolio-modal modal fade" id="portfolioModal3"
-		tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
-				<div class="modal-header border-0">
-					<button class="btn-close" type="button" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body text-center pb-5">
-					<div class="container">
-						<div class="row justify-content-center">
-							<div class="col-lg-8">
-								<!-- Portfolio Modal - Title-->
-								<h2
-									class="portfolio-modal-title text-secondary text-uppercase mb-0">Circus
-									Tent</h2>
-								<!-- Icon Divider-->
-								<div class="divider-custom">
-									<div class="divider-custom-line"></div>
-									<div class="divider-custom-icon">
-										<i class="fas fa-star"></i>
-									</div>
-									<div class="divider-custom-line"></div>
-								</div>
-								<!-- Portfolio Modal - Image-->
-								<img class="img-fluid rounded mb-5"
-									src="assets/img/portfolio/circus.png" alt="..." />
-								<!-- Portfolio Modal - Text-->
-								<p class="mb-4">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Mollitia neque assumenda ipsam nihil,
-									molestias magnam, recusandae quos quis inventore quisquam velit
-									asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-									itaque. Nam.</p>
-								<button class="btn btn-primary" href="#!"
-									data-bs-dismiss="modal">
-									<i class="fas fa-times fa-fw"></i> Close Window
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Portfolio Modal 4-->
-	<div class="portfolio-modal modal fade" id="portfolioModal4"
-		tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
-				<div class="modal-header border-0">
-					<button class="btn-close" type="button" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body text-center pb-5">
-					<div class="container">
-						<div class="row justify-content-center">
-							<div class="col-lg-8">
-								<!-- Portfolio Modal - Title-->
-								<h2
-									class="portfolio-modal-title text-secondary text-uppercase mb-0">Controller</h2>
-								<!-- Icon Divider-->
-								<div class="divider-custom">
-									<div class="divider-custom-line"></div>
-									<div class="divider-custom-icon">
-										<i class="fas fa-star"></i>
-									</div>
-									<div class="divider-custom-line"></div>
-								</div>
-								<!-- Portfolio Modal - Image-->
-								<img class="img-fluid rounded mb-5"
-									src="assets/img/portfolio/game.png" alt="..." />
-								<!-- Portfolio Modal - Text-->
-								<p class="mb-4">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Mollitia neque assumenda ipsam nihil,
-									molestias magnam, recusandae quos quis inventore quisquam velit
-									asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-									itaque. Nam.</p>
-								<button class="btn btn-primary" href="#!"
-									data-bs-dismiss="modal">
-									<i class="fas fa-times fa-fw"></i> Close Window
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Portfolio Modal 5-->
-	<div class="portfolio-modal modal fade" id="portfolioModal5"
-		tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
-				<div class="modal-header border-0">
-					<button class="btn-close" type="button" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body text-center pb-5">
-					<div class="container">
-						<div class="row justify-content-center">
-							<div class="col-lg-8">
-								<!-- Portfolio Modal - Title-->
-								<h2
-									class="portfolio-modal-title text-secondary text-uppercase mb-0">Locked
-									Safe</h2>
-								<!-- Icon Divider-->
-								<div class="divider-custom">
-									<div class="divider-custom-line"></div>
-									<div class="divider-custom-icon">
-										<i class="fas fa-star"></i>
-									</div>
-									<div class="divider-custom-line"></div>
-								</div>
-								<!-- Portfolio Modal - Image-->
-								<img class="img-fluid rounded mb-5"
-									src="assets/img/portfolio/safe.png" alt="..." />
-								<!-- Portfolio Modal - Text-->
-								<p class="mb-4">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Mollitia neque assumenda ipsam nihil,
-									molestias magnam, recusandae quos quis inventore quisquam velit
-									asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-									itaque. Nam.</p>
-								<button class="btn btn-primary" href="#!"
-									data-bs-dismiss="modal">
-									<i class="fas fa-times fa-fw"></i> Close Window
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Portfolio Modal 6-->
-	<div class="portfolio-modal modal fade" id="portfolioModal6"
-		tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-		<div class="modal-dialog modal-xl">
-			<div class="modal-content">
-				<div class="modal-header border-0">
-					<button class="btn-close" type="button" data-bs-dismiss="modal"
-						aria-label="Close"></button>
-				</div>
-				<div class="modal-body text-center pb-5">
-					<div class="container">
-						<div class="row justify-content-center">
-							<div class="col-lg-8">
-								<!-- Portfolio Modal - Title-->
-								<h2
-									class="portfolio-modal-title text-secondary text-uppercase mb-0">Submarine</h2>
-								<!-- Icon Divider-->
-								<div class="divider-custom">
-									<div class="divider-custom-line"></div>
-									<div class="divider-custom-icon">
-										<i class="fas fa-star"></i>
-									</div>
-									<div class="divider-custom-line"></div>
-								</div>
-								<!-- Portfolio Modal - Image-->
-								<img class="img-fluid rounded mb-5"
-									src="assets/img/portfolio/submarine.png" alt="..." />
-								<!-- Portfolio Modal - Text-->
-								<p class="mb-4">Lorem ipsum dolor sit amet, consectetur
-									adipisicing elit. Mollitia neque assumenda ipsam nihil,
-									molestias magnam, recusandae quos quis inventore quisquam velit
-									asperiores, vitae? Reprehenderit soluta, eos quod consequuntur
-									itaque. Nam.</p>
-								<button class="btn btn-primary" href="#!"
-									data-bs-dismiss="modal">
-									<i class="fas fa-times fa-fw"></i> Close Window
-								</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Bootstrap core JS-->
-	<script
-		src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-	<!-- Core theme JS-->
-	<script src="js/scripts.js"></script>
-	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-	<!-- * *                               SB Forms JS                               * *-->
-	<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-	<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-	<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-</body>
-</html>
+<% if(session.getAttribute("name")==null){ response.sendRedirect("login.jsp"); } %>
+    <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
+
+
+        <!DOCTYPE html>
+        <html lang="en">
+
+        <head>
+            <meta charset="UTF-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>TECH WEB SITE</title>
+            <link rel="stylesheet" href="style/style.css">
+            <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
+        </head>
+        <style>
+        </style>
+
+        <body>
+            <nav>
+                <div class="container">
+                    <h2 class="logo">
+                        TECH WEB PROJ
+
+                    </h2>
+
+                    <div class="search-bar">
+                        <i class="uil uil-search"></i>
+                        <input type="search" placeholder="Search for creators,news">
+
+                    </div>
+
+                    <div class="dropdown">
+                        <button style="border-radius: 8%;" class="btn ">
+                            <%=session.getAttribute("name")%>
+                                <i class="uil uil-angle-down"></i>
+                        </button>
+                        <div class="dropdown-content">
+
+                            <a href="#"><i class="uil uil-user"></i>Profile</a>
+                            <a href="#"><i class="uil uil-cog"></i>Settings</a>
+                            <a href="#"><i class="uil uil-question-circle"></i>Help</a>
+                            <a href="logout"><i class="uil uil-sign-out-alt"></i>Logout</a>
+                        </div>
+                    </div>
+
+
+
+                </div>
+
+            </nav>
+
+            <!--MAIN------------------->
+            <main>
+                <div class="container">
+                    <!--left------------------->
+                    <div class="left">
+                        <a class="profile">
+                            <div class="profile-picture">
+                                <img src="../webapp/images/profile-2.jpg"/>
+                            </div>
+                            
+                            <div class="handle">
+                                <h4><%=session.getAttribute("name")%></h4>
+                                <p class="text-muted">
+                                    @<%=session.getAttribute("name")%>
+                                </p>
+                            </div>
+                        </a>
+                        <div class="sidebar">
+                            <a class="menu-item active ">
+                                <span><i class="uil uil-football"></i></span>
+                                <h3>Sports</h3>
+                            </a>
+                            <a class="menu-item  " href="technology.jsp">
+                                <span><i class="uil uil-robot"></i></span>
+                                <h3>Technologry</h3>
+                            </a>
+                            <a class="menu-item  " href="art.jsp">
+                                <span><i class="uil uil-palette"></i></span>
+                                <h3>Art</h3>
+                            </a>
+                            <a class="menu-item " href="explore.jsp">
+                                <span><i class="uil uil-compass"></i></span>
+                                <h3>Explore Video
+                                </h3>
+                            </a>
+                            <a class="menu-item  " id="messages-notificatons" href="inter.jsp">
+                                <span><i class="uil uil-newspaper">
+                                        <small class="notifications-count">6+</small>
+                                    </i></span>
+                                <h3>Inter News</h3>
+                            </a>
+                            <a class="menu-item  " id="notifications">
+                                <span><i class="uil uil-bell"><small class="notifications-count">9+</small></i></span>
+                                <h3>Notification</h3>
+                                <!--Notification bar-->
+                                <div class="notification-popup">
+                                    <div>
+                                        <div class="profile-picture">
+                                            <img src="../webapp/images/profile-1.jpg">
+                                        </div>
+                                        <div class="notification-body">
+                                            <b>Salah Ben </b> Posted new News
+                                            <br />
+                                            <small class="text-muted">12:12 yesterday</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="profile-picture">
+                                            <img src="../webapp/images/profile-1.jpg">
+                                        </div>
+                                        <div class="notification-body">
+                                            <b>samir Ben </b> Posted new News
+                                            <br />
+                                            <small class="text-muted">12:00 yesterday</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="profile-picture">
+                                            <img src="../webapp/images/profile-3.jpg">
+                                        </div>
+                                        <div class="notification-body">
+                                            <b>samir Ben </b> Posted new News
+                                            <br />
+                                            <small class="text-muted">12:12 yesterday</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="profile-picture">
+                                            <img src="../webapp/images/profile-4.jpg">
+                                        </div>
+                                        <div class="notification-body">
+                                            <b>samir Ben </b> Posted new News
+                                            <br />
+                                            <small class="text-muted">12:12 yesterday</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="profile-picture">
+                                            <img src="../webapp/images/profile-1.jpg">
+                                        </div>
+                                        <div class="notification-body">
+                                            <b>samir</b> Posted new News
+                                            <br />
+                                            <small class="text-muted">12:12 yesterday</small>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <div class="profile-picture">
+                                            <img src="../webapp/images/profile-2.jpg">
+                                        </div>
+                                        <div class="notification-body">
+                                            <b>samir Ben </b> Posted new News
+                                            <br />
+                                            <small class="text-muted">12:12 yesterday</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </a>
+                            <a class="menu-item  " href="Analyses.jsp">
+                                <span><i class="uil uil-analysis"></i></span>
+                                <h3>Analytis</h3>
+                            </a>
+                            <a class="menu-item " id="theme">
+                                <span><i class="uil uil-paint-tool"></i></span>
+                                <h3>Theme</h3>
+                            </a>
+                            <a class="menu-item " href="settings.jsp">
+                                <span><i class="uil uil-sliders-v"></i></span>
+                                <h3>Settings</h3>
+                            </a>
+
+                        </div>
+                        <!--end of side bar------------------->
+                        <a href="" onclick="openForm()">
+                            <button class="btn btn-primary" >
+                                Signout(<%=session.getAttribute("name")%>)
+                                    <i class="uil uil-sign-out-alt"></i>
+                            </button>
+                        </a>
+                    </div>
+                    <!--middle------------------->
+                    <div class="middle">
+
+                        <!------------------------------------------>
+                        <div class="wrapperr">
+                            <section class="post">
+                                <header>Create Post</header>
+                                <form action="#">
+                                    <div class="content">
+                                        <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                            <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                        </a>
+                                        <div class="details">
+                                            <p>ISMAIL FEI</p>
+                                            <div class="privacy">
+                                                <i class="fas fa-user-friends"></i>
+                                                <span>Admin</span>
+                                                <i class="fas fa-caret-down"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <textarea placeholder="What's on your mind, ISMAIL?" spellcheck="false"
+                                        required></textarea>
+
+                                    <div class="options">
+                                        <p>Add to Your Post</p>
+                                        <ul class="list">
+                                            <li><img src="icons/gallery.svg" alt="gallery"></li>
+                                            <li><img src="icons/tag.svg" alt="gallery"></li>
+                                            <li><img src="icons/emoji.svg" alt="gallery"></li>
+                                            <li><img src="icons/mic.svg" alt="gallery"></li>
+                                            <li><img src="icons/more.svg" alt="gallery"></li>
+                                        </ul>
+                                    </div>
+                                    <button>Post</button>
+                                </form>
+                            </section>
+
+                        </div>
+
+                        <!------------------------------------------>
+                        <div class="feeds">
+                            <div class="feed">
+                                <div class="head">
+                                    <div class="user">
+                                        <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                            <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                        </a>
+                                        <div class="ingo">
+                                            <h2>El Djazair Daily - Ø§ÙØ¬Ø²Ø§Ø¦Ø± Ø¯Ø§ÙÙÙ</h2>
+                                            <small>Bousaada- 1hour Ago </small>
+                                        </div>
+                                        <span class="edit">
+                                            <i class="uil uil-ellipsis-h"></i>
+                                        </span>
+                                    </div>
+                                    <div class="caption">
+                                        <p><b> ÙØ¨Ø§Ø±Ø§Ø© Ø§ÙØ¥ÙØ§Ø¨ : ÙÙÙ Ø§ÙØ«ÙØ§Ø«Ø§Ø¡ Ø§ÙÙØ§Ø¯Ù
+                                                Ø§ÙØ³Ø§Ø¹Ø© 20:30 ÙØ³Ø§Ø¡Ø§ Ø¨ØªÙÙÙØª Ø§ÙØ¬Ø²Ø§Ø¦Ø± Ø¹ÙÙ
+                                                ÙÙØ¹Ø¨
+                                                ÙØµØ·ÙÙ ØªØ´Ø§ÙØ± Ø¨Ø§ÙØ¨ÙÙØ¯Ø©
+                                                Ø¨Ø¹Ø¯ Ø§ÙÙÙØ²
+                                            </b><br> <span class="harch-tag">#sport</span>
+                                        </p>
+                                        <div class=" comments text-muted">
+                                            View By 277k Person
+                                        </div>
+                                    </div>
+                                    <div class="photo">
+                                        <img src="../webapp/images/feed-5.jpg" alt="">
+                                    </div>
+                                    <div class="action-buttons">
+                                        <div class="interaction-buttons">
+                                            <span><i class="uil uil-heart"></i></span>
+                                            <span><i class="uil uil-comment-dots"></i></span>
+                                            <span><i class="uil uil-share-alt"></i></span>
+                                        </div>
+                                        <div class="bookmark">
+                                            <i class="uil uil-bookmark"></i>
+                                        </div>
+                                    </div>
+                                    <div class="liked-by">
+                                        <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                        <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                        <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                        <p>Liked by <b>Feidjel ismail</b> and
+                                            233 other
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feed">
+                                <div class="head">
+                                    <div class="user">
+                                        <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                            <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                        </a>
+                                        <div class="ingo">
+                                            <h2>El Djazair Daily - Ø§ÙØ¬Ø²Ø§Ø¦Ø± Ø¯Ø§ÙÙÙ</h2>
+                                            <small>Bousaada- 1hour Ago </small>
+                                        </div>
+                                        <span class="edit">
+                                            <i class="uil uil-ellipsis-h"></i>
+                                        </span>
+                                    </div>
+                                    <div class="caption">
+                                        <p><b>
+                                                ð´Ø¨ÙØ§Ù Ø¬Ø¯ÙØ¯ ÙÙÙØ§Ù Ø­ÙÙ ÙØ¨Ø§Ø±Ø§Ø© Ø§ÙÙØ§ÙÙØ±ÙÙ
+                                                Ø§ÙØªÙØ§ØµÙÙ:
+                                                https://edd-dz.net/?p=122292 </b><br> <span
+                                                class="harch-tag">#russia</span>
+                                        </p>
+                                        <div class=" comments text-muted">
+                                            View By 277k Person
+                                        </div>
+                                    </div>
+                                    <div class="photo">
+                                        <img src="../webapp/images/feed-001.jpg" alt="">
+                                    </div>
+                                    <div class="action-buttons">
+                                        <div class="interaction-buttons">
+                                            <span><i class="uil uil-heart"></i></span>
+                                            <span><i class="uil uil-comment-dots"></i></span>
+                                            <span><i class="uil uil-share-alt"></i></span>
+                                        </div>
+                                        <div class="bookmark">
+                                            <i class="uil uil-bookmark"></i>
+                                        </div>
+                                    </div>
+                                    <div class="liked-by">
+                                        <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                        <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                        <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                        <p>Liked by <b>Feidjel ismail</b> and
+                                            233 other
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feed">
+                                <div class="head">
+                                    <div class="user">
+                                        <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                            <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                        </a>
+                                        <div class="ingo">
+                                            <h2>El Djazair Daily - Ø§ÙØ¬Ø²Ø§Ø¦Ø± Ø¯Ø§ÙÙÙ</h2>
+                                            <small>Bousaada- 1hour Ago </small>
+                                        </div>
+                                        <span class="edit">
+                                            <i class="uil uil-ellipsis-h"></i>
+                                        </span>
+                                    </div>
+                                    <div class="caption">
+                                        <p><b> ÙØ±ÙØ³ØªÙØ§ÙÙ Ø±ÙÙØ§ÙØ¯Ù ÙØ¹ÙÙ Ø¹Ù ÙÙØ§Ø© Ø·ÙÙÙ
+                                                https://edd-dz.net/?p=122287 </b><br> <span
+                                                class="harch-tag">#russia</span>
+                                        </p>
+                                        <div class=" comments text-muted">
+                                            View By 277k Person
+                                        </div>
+                                    </div>
+                                    <div class="photo">
+                                        <img src="../webapp/images/feed-02.jpg" alt="">
+                                    </div>
+                                    <div class="action-buttons">
+                                        <div class="interaction-buttons">
+                                            <span><i class="uil uil-heart"></i></span>
+                                            <span><i class="uil uil-comment-dots"></i></span>
+                                            <span><i class="uil uil-share-alt"></i></span>
+                                        </div>
+                                        <div class="bookmark">
+                                            <i class="uil uil-bookmark"></i>
+                                        </div>
+                                    </div>
+                                    <div class="liked-by">
+                                        <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                        <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                        <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                        <p>Liked by <b>Feidjel ismail</b> and
+                                            233 other
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="feed">
+                                <div class="head">
+                                    <div class="user">
+                                        <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                            <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                        </a>
+                                        <div class="ingo">
+                                            <h2>El Djazair Daily - Ø§ÙØ¬Ø²Ø§Ø¦Ø± Ø¯Ø§ÙÙÙ</h2>
+                                            <small>Bousaada- 1hour Ago </small>
+                                        </div>
+                                        <span class="edit">
+                                            <i class="uil uil-ellipsis-h"></i>
+                                        </span>
+                                    </div>
+                                    <div class="caption">
+                                        <p><b> ð´Ø§ÙÙØ§Ù ØªØ®ØªØ§Ø± 4 ÙØ§Ø¹Ø¨ÙÙ ÙÙØªÙØ§ÙØ³ÙØ§ Ø¹ÙÙ
+                                                Ø¬Ø§Ø¦Ø²Ø© "Ø§ÙØ£ÙØ¶Ù"Ø ÙÙ Ø°ÙØ§Ø¨ Ø±Ø¨Ø¹ ÙÙØ§Ø¦Ù ÙØ³Ø§Ø¨ÙØ©
+                                                Ø¯ÙØ±Ù Ø£Ø¨Ø·Ø§Ù Ø£ÙØ±ÙÙÙØ§
+                                                ð´Ø§ÙÙØ§Ø¦ÙØ© Ø¹Ø±ÙØª ØªÙØ§Ø¬Ø¯ Ø³ÙÙØ§Ù Ø®Ø°Ø§ÙØ±ÙØ©
+                                                Ø­Ø§Ø±Ø³ ÙÙØ§Ù Ø³Ø·ÙÙ </b><br> <span
+                                                class="harch-tag">#russia</span>
+                                        </p>
+                                        <div class=" comments text-muted">
+                                            View By 277k Person
+                                        </div>
+                                    </div>
+                                    <div class="photo">
+                                        <img src="../webapp/images/feed-03.jpg" alt="">
+                                    </div>
+                                    <div class="action-buttons">
+                                        <div class="interaction-buttons">
+                                            <span><i class="uil uil-heart"></i></span>
+                                            <span><i class="uil uil-comment-dots"></i></span>
+                                            <span><i class="uil uil-share-alt"></i></span>
+                                        </div>
+                                        <div class="bookmark">
+                                            <i class="uil uil-bookmark"></i>
+                                        </div>
+                                    </div>
+                                    <div class="liked-by">
+                                        <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                        <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                        <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                        <p>Liked by <b>Feidjel ismail</b> and
+                                            233 other
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--right------------------->
+                    <div class="right">
+                        <div class="messages">
+                            <div class="heading">
+
+                                <h4>Watch Live</h4><i class="uil uil-star"></i>
+                            </div>
+                            <div class="search-bar">
+                                <i class="uil uil-search"></i>
+                                <input type="search" placeholder="Search" id="message-search">
+                            </div>
+                            <!--news categery------------------->
+                            <div class="category">
+                                <h6 class="active"> <i class="uil uil-fire"></i> <br>Today</h6>
+                                <h6> <i class="uil uil-play"></i><br> Yesterday</h6>
+                                <h6 class="messages-requests"> <i class="uil uil-rainbow"></i> <br>Folowing(2)</h6>
+                            </div>
+                            <!--the body ------------------->
+                            <div class="video-list-container">
+                                <div class="match-event ch-soon">
+                                    <a id="match-live" href="#">
+                                        <div id="overlay-match">
+                                            <div id="watch-match"></div>
+                                        </div>
+                                    </a>
+                                    <div class="first-team">
+                                        <div class="team-logo">
+                                            <img alt="ÙÙÙØ±Ø¨ÙÙ" height="70"
+                                                src="https://ssl.gstatic.com/onebox/media/sports/logos/0iShHhASp5q1SL4JhtwJiw_96x96.png"
+                                                title="ÙÙÙØ±Ø¨ÙÙ" width="70">
+                                        </div>
+                                        <div class="team-name">ÙÙÙØ±Ø¨ÙÙ</div>
+                                    </div>
+                                    <div class="match-time">
+                                        <div class="match-timing">
+                                            <div id="match-hour">1:00 Ù</div>
+                                            <div id="result-now">0-0</div>
+                                            <span class="match-date soon" data-start="2022-04-24T15:00:00+02:00"
+                                                data-gameends="2022-04-24T18:00:00+02:00">Ø¨Ø¹Ø¯ ÙÙÙÙ</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-team">
+                                        <div class="team-logo">
+                                            <img alt="ÙØ³Øª ÙØ§Ù" height="70" src="https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_96x96.png
+                                                        " title="ÙØ³Øª ÙØ§Ù" width="70">
+                                        </div>
+                                        <div class="team-name">ÙØ³Øª ÙØ§Ù</div>
+                                    </div>
+                                    <div class="match-info">
+                                        <ul>
+                                            <li><span>beIN 1 </span></li>
+                                            <li><span>Ø¹Ø§ÙØ± Ø§ÙØ®ÙØ°ÙØ±Ù </span></li>
+                                            <li><span>Ø§ÙØ¯ÙØ±Ù Ø§ÙØ§ÙØ¬ÙÙØ²Ù </span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="match-event ch-soon">
+                                    <a id="match-live" href="#">
+                                        <div id="overlay-match">
+                                            <div id="watch-match"></div>
+                                        </div>
+                                    </a>
+                                    <div class="first-team">
+                                        <div class="team-logo">
+                                            <img alt="ØªØ´ÙÙØ³Ù" height="70"
+                                                src="https://ssl.gstatic.com/onebox/media/sports/logos/fhBITrIlbQxhVB6IjxUO6Q_96x96.png"
+                                                title="ØªØ´ÙÙØ³Ù" width="40">
+                                        </div>
+                                        <div class="team-name">ØªØ´ÙÙØ³Ù</div>
+                                    </div>
+                                    <div class="match-time">
+                                        <div class="match-timing">
+                                            <div id="match-hour">1:00 Ù</div>
+                                            <div id="result-now">0-0</div>
+                                            <span class="match-date soon" data-start="2022-04-24T15:00:00+02:00"
+                                                data-gameends="2022-04-24T18:00:00+02:00">Ø¨Ø¹Ø¯ ÙÙÙÙ</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-team">
+                                        <div class="team-logo">
+                                            <img alt="Ø¨Ø±Ø´ÙÙÙØ©" height="70"
+                                                src="https://ssl.gstatic.com/onebox/media/sports/logos/paYnEE8hcrP96neHRNofhQ_96x96.png"
+                                                title="Ø¨Ø±Ø´ÙÙÙØ©" width="70">
+                                        </div>
+                                        <div class="team-name">Ø¨Ø±Ø´ÙÙÙØ©</div>
+                                    </div>
+                                    <div class="match-info">
+                                        <ul>
+                                            <li><span>beIN 1 </span></li>
+                                            <li><span>Ø¹Ø§ÙØ± Ø§ÙØ®ÙØ°ÙØ±Ù </span></li>
+                                            <li><span>Ø§ÙØ¯ÙØ±Ù Ø§ÙØ§ÙØ¬ÙÙØ²Ù </span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="match-event ch-soon">
+                                    <a id="match-live" href="#">
+                                        <div id="overlay-match">
+                                            <div id="watch-match"></div>
+                                        </div>
+                                    </a>
+                                    <div class="first-team">
+                                        <div class="team-logo">
+                                            <img alt="ÙÙÙØ§Ù" height="70" src="https://ssl.gstatic.com/onebox/media/sports/logos/VoKsJ6RitaHGhsM62e6AXQ_96x96.png
+                                " title="ÙÙÙØ§Ù" width="70">
+                                        </div>
+                                        <div class="team-name">ÙÙÙØ§Ù</div>
+                                    </div>
+                                    <div class="match-time">
+                                        <div class="match-timing">
+                                            <div id="match-hour">1:00 Ù</div>
+                                            <div id="result-now">0-0</div>
+                                            <span class="match-date soon" data-start="2022-04-24T15:00:00+02:00"
+                                                data-gameends="2022-04-24T18:00:00+02:00">Ø¨Ø¹Ø¯ ÙÙÙÙ</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-team">
+                                        <div class="team-logo">
+                                            <img alt="ÙØ³Øª ÙØ§Ù" height="70" src="https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_96x96.png
+                                                        " title="ÙØ³Øª ÙØ§Ù" width="70">
+                                        </div>
+                                        <div class="team-name">ÙØ³Øª ÙØ§Ù</div>
+                                    </div>
+                                    <div class="match-info">
+                                        <ul>
+                                            <li><span>beIN 1 </span></li>
+                                            <li><span>Ø¹Ø§ÙØ± Ø§ÙØ®ÙØ°ÙØ±Ù </span></li>
+                                            <li><span>Ø§ÙØ¯ÙØ±Ù Ø§ÙØ§ÙØ¬ÙÙØ²Ù </span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="match-event ch-soon">
+                                    <a id="match-live" href="#">
+                                        <div id="overlay-match">
+                                            <div id="watch-match"></div>
+                                        </div>
+                                    </a>
+                                    <div class="first-team">
+                                        <div class="team-logo">
+                                            <img alt="ØªØ´ÙÙØ³Ù" height="70"
+                                                src="https://ssl.gstatic.com/onebox/media/sports/logos/fhBITrIlbQxhVB6IjxUO6Q_96x96.png"
+                                                title="ØªØ´ÙÙØ³Ù" width="40">
+                                        </div>
+                                        <div class="team-name">ØªØ´ÙÙØ³Ù</div>
+                                    </div>
+                                    <div class="match-time">
+                                        <div class="match-timing">
+                                            <div id="match-hour">1:00 Ù</div>
+                                            <div id="result-now">0-0</div>
+                                            <span class="match-date soon" data-start="2022-04-24T15:00:00+02:00"
+                                                data-gameends="2022-04-24T18:00:00+02:00">Ø¨Ø¹Ø¯ ÙÙÙÙ</span>
+                                        </div>
+                                    </div>
+                                    <div class="left-team">
+                                        <div class="team-logo">
+                                            <img alt="ÙØ³Øª ÙØ§Ù" height="70" src="https://ssl.gstatic.com/onebox/media/sports/logos/bXkiyIzsbDip3x2FFcUU3A_96x96.png
+                                                        " title="ÙØ³Øª ÙØ§Ù" width="70">
+                                        </div>
+                                        <div class="team-name">ÙØ³Øª ÙØ§Ù</div>
+                                    </div>
+                                    <div class="match-info">
+                                        <ul>
+                                            <li><span>beIN 1 </span></li>
+                                            <li><span>Ø¹Ø§ÙØ± Ø§ÙØ®ÙØ°ÙØ±Ù </span></li>
+                                            <li><span>Ø§ÙØ¯ÙØ±Ù Ø§ÙØ§ÙØ¬ÙÙØ²Ù </span></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+                </div>
+            </main>
+
+            <!---->
+            <div class="customize-theme">
+                <div class="card">
+                    <h2>Customize Your View</h2>
+                    <p class="text-muted">Manage Your Font Size,Color,and Background.</p>
+
+                    <!--Font sizes-->
+                    <div class="font-size">
+                        <h4>Font Size</h4>
+                        <div>
+                            <h6>Aa</h6>
+                            <div class="choose-size">
+                                <span class="font-size-1"></span>
+                                <span class="font-size-2"></span>
+                                <span class="font-size-3 active"></span>
+                                <span class="font-size-4"></span>
+                                <span class="font-size-5"></span>
+                            </div>
+                            <h3>Aa</h3>
+                        </div>
+                    </div>
+                    <!--Colors-->
+
+                    <div class="color">
+                        <h4>Color</h4>
+                        <div class="choose-color">
+                            <span class="color-1 active"></span>
+                            <span class="color-2"></span>
+                            <span class="color-3"></span>
+                            <span class="color-4"></span>
+                            <span class="color-5"></span>
+                        </div>
+                    </div>
+
+                    <!--background-->
+
+                    <div class="Background">
+                        <h4>Background</h4>
+                        <div class="choose-bg">
+                            <div class="bg-1 active">
+                                <span class="bbb"></span>
+                                <h5 for="bg-1">Light</h5>
+                            </div>
+                            <div class="bg-2 ">
+                                <span></span>
+                                <h5 for="bg-2">Blue</h5>
+                            </div>
+                            <div class="bg-3">
+                                <span></span>
+                                <h5 for="bg-3">Dark</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="customize-theme" id="profileform">
+
+
+                <div class="profile-card js-profile-card">
+                    <div class="profile-card__img">
+                        <img src="../webapp/images/profile-2.jpg" alt="profile card">
+                    </div>
+
+                    <div class="profile-card__cnt js-profile-cnt">
+                        <div class="profile-card__name">Feidjel Ismail</div>
+                        <div class="profile-card__txt">Front-end Developer from <strong>Mesopotamia</strong></div>
+                        <div class="profile-card-loc">
+                            <span class="profile-card-loc__icon">
+                                <svg class="icon">
+                                    <use xlink:href="#icon-location"></use>
+                                </svg>
+                            </span>
+
+                            <span class="profile-card-loc__txt">
+                                Algeria, Msila
+                            </span>
+                        </div>
+
+                        <div class="profile-card-inf">
+                            <div class="profile-card-inf__item">
+                                <div class="profile-card-inf__title">1598</div>
+                                <div class="profile-card-inf__txt">Followers</div>
+                            </div>
+
+                            <div class="profile-card-inf__item">
+                                <div class="profile-card-inf__title">65</div>
+                                <div class="profile-card-inf__txt">Following</div>
+                            </div>
+
+                            <div class="profile-card-inf__item">
+                                <div class="profile-card-inf__title">123</div>
+                                <div class="profile-card-inf__txt">Articles</div>
+                            </div>
+
+                            <div class="profile-card-inf__item">
+                                <div class="profile-card-inf__title">85</div>
+                                <div class="profile-card-inf__txt">Works</div>
+                            </div>
+                        </div>
+
+                        <div class="profile-card-social">
+                            <a href="#" class="profile-card-social__item facebook" target="_blank">
+                                <span class="icon-font">
+                                    <svg class="icon">
+                                        <use xlink:href="#icon-facebook"></use>
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <a href="#" class="profile-card-social__item twitter" target="_blank">
+                                <span class="icon-font">
+                                    <svg class="icon">
+                                        <use xlink:href="#icon-twitter"></use>
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <a href="#" class="profile-card-social__item instagram" target="_blank">
+                                <span class="icon-font">
+                                    <svg class="icon">
+                                        <use xlink:href="#icon-instagram"></use>
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <a href="#" class="profile-card-social__item behance" target="_blank">
+                                <span class="icon-font">
+                                    <svg class="icon">
+                                        <use xlink:href="#icon-behance"></use>
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <a href="#" class="profile-card-social__item github" target="_blank">
+                                <span class="icon-font">
+                                    <svg class="icon">
+                                        <use xlink:href="#icon-github"></use>
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <a href="#" class="profile-card-social__item codepen" target="_blank">
+                                <span class="icon-font">
+                                    <svg class="icon">
+                                        <use xlink:href="#icon-codepen"></use>
+                                    </svg>
+                                </span>
+                            </a>
+
+                            <a href="#" class="profile-card-social__item link" target="_blank">
+                                <span class="icon-font">
+                                    <svg class="icon">
+                                        <use xlink:href="#icon-link"></use>
+                                    </svg>
+                                </span>
+                            </a>
+
+                        </div>
+
+                        <div class="profile-card-ctr">
+                            <button class="profile-card__button button--blue js-message-btn">Message</button>
+                            <button class="profile-card__button button--orange">Follow</button>
+                        </div>
+                    </div>
+
+                    <div class="profile-card-message js-message">
+                        <form class="profile-card-form">
+                            <div class="profile-card-form__container">
+                                <textarea placeholder="Say something..."></textarea>
+                            </div>
+
+                            <div class="profile-card-form__bottom">
+                                <button class="profile-card__button button--blue message-close">
+                                    Send
+                                </button>
+
+                                <button class="profile-card__button button--gray message-close">
+                                    Cancel
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+
+                <svg hidden="hidden">
+                    <defs>
+                        <symbol id="icon-codepen" viewBox="0 0 32 32">
+                            <title>codepen</title>
+                            <path
+                                d="M31.872 10.912v-0.032c0-0.064 0-0.064 0-0.096v-0.064c0-0.064 0-0.064-0.064-0.096 0 0 0-0.064-0.064-0.064 0-0.064-0.064-0.064-0.064-0.096 0 0 0-0.064-0.064-0.064 0-0.064-0.064-0.064-0.064-0.096l-0.192-0.192v-0.064l-0.064-0.064-14.592-9.696c-0.448-0.32-1.056-0.32-1.536 0l-14.528 9.696-0.32 0.32c0 0-0.064 0.064-0.064 0.096 0 0 0 0.064-0.064 0.064 0 0.064-0.064 0.064-0.064 0.096 0 0 0 0.064-0.064 0.064 0 0.064 0 0.064-0.064 0.096v0.064c0 0.064 0 0.064 0 0.096v0.064c0 0.064 0 0.096 0 0.16v9.696c0 0.064 0 0.096 0 0.16v0.064c0 0.064 0 0.064 0 0.096v0.064c0 0.064 0 0.064 0.064 0.096 0 0 0 0.064 0.064 0.064 0 0.064 0.064 0.064 0.064 0.096 0 0 0 0.064 0.064 0.064 0 0.064 0.064 0.064 0.064 0.096l0.256 0.256 0.064 0.032 14.528 9.728c0.224 0.16 0.48 0.224 0.768 0.224s0.544-0.064 0.768-0.224l14.528-9.728 0.32-0.32c0 0 0.064-0.064 0.064-0.096 0 0 0-0.064 0.064-0.064 0-0.064 0.064-0.064 0.064-0.096 0 0 0-0.064 0.064-0.064 0-0.064 0-0.064 0.064-0.096v-0.032c0-0.064 0-0.064 0-0.096v-0.064c0-0.064 0-0.096 0-0.16v-9.664c0-0.064 0-0.096 0-0.224zM17.312 4l10.688 7.136-4.768 3.168-5.92-3.936v-6.368zM14.56 4v6.368l-5.92 3.968-4.768-3.168 10.688-7.168zM2.784 13.664l3.392 2.304-3.392 2.304c0 0 0-4.608 0-4.608zM14.56 28l-10.688-7.136 4.768-3.2 5.92 3.936v6.4zM15.936 19.2l-4.832-3.232 4.832-3.232 4.832 3.232-4.832 3.232zM17.312 28v-6.432l5.92-3.936 4.8 3.168-10.72 7.2zM29.12 18.272l-3.392-2.304 3.392-2.304v4.608z">
+                            </path>
+                        </symbol>
+
+                        <symbol id="icon-github" viewBox="0 0 32 32">
+                            <title>github</title>
+                            <path
+                                d="M16.192 0.512c-8.832 0-16 7.168-16 16 0 7.072 4.576 13.056 10.944 15.168 0.8 0.16 1.088-0.352 1.088-0.768 0-0.384 0-1.632-0.032-2.976-4.448 0.96-5.376-1.888-5.376-1.888-0.736-1.856-1.792-2.336-1.792-2.336-1.44-0.992 0.096-0.96 0.096-0.96 1.6 0.128 2.464 1.664 2.464 1.664 1.44 2.432 3.744 1.728 4.672 1.344 0.128-1.024 0.544-1.728 1.024-2.144-3.552-0.448-7.296-1.824-7.296-7.936 0-1.76 0.64-3.168 1.664-4.288-0.16-0.416-0.704-2.016 0.16-4.224 0 0 1.344-0.416 4.416 1.632 1.28-0.352 2.656-0.544 4-0.544s2.72 0.192 4 0.544c3.040-2.080 4.384-1.632 4.384-1.632 0.864 2.208 0.32 3.84 0.16 4.224 1.024 1.12 1.632 2.56 1.632 4.288 0 6.144-3.744 7.488-7.296 7.904 0.576 0.512 1.088 1.472 1.088 2.976 0 2.144-0.032 3.872-0.032 4.384 0 0.416 0.288 0.928 1.088 0.768 6.368-2.112 10.944-8.128 10.944-15.168 0-8.896-7.168-16.032-16-16.032z">
+                            </path>
+                            <path
+                                d="M6.24 23.488c-0.032 0.064-0.16 0.096-0.288 0.064-0.128-0.064-0.192-0.16-0.128-0.256 0.032-0.096 0.16-0.096 0.288-0.064 0.128 0.064 0.192 0.16 0.128 0.256v0z">
+                            </path>
+                            <path
+                                d="M6.912 24.192c-0.064 0.064-0.224 0.032-0.32-0.064s-0.128-0.256-0.032-0.32c0.064-0.064 0.224-0.032 0.32 0.064s0.096 0.256 0.032 0.32v0z">
+                            </path>
+                            <path
+                                d="M7.52 25.12c-0.096 0.064-0.256 0-0.352-0.128s-0.096-0.32 0-0.384c0.096-0.064 0.256 0 0.352 0.128 0.128 0.128 0.128 0.32 0 0.384v0z">
+                            </path>
+                            <path
+                                d="M8.384 26.016c-0.096 0.096-0.288 0.064-0.416-0.064s-0.192-0.32-0.096-0.416c0.096-0.096 0.288-0.064 0.416 0.064 0.16 0.128 0.192 0.32 0.096 0.416v0z">
+                            </path>
+                            <path
+                                d="M9.6 26.528c-0.032 0.128-0.224 0.192-0.384 0.128-0.192-0.064-0.288-0.192-0.256-0.32s0.224-0.192 0.416-0.128c0.128 0.032 0.256 0.192 0.224 0.32v0z">
+                            </path>
+                            <path
+                                d="M10.912 26.624c0 0.128-0.16 0.256-0.352 0.256s-0.352-0.096-0.352-0.224c0-0.128 0.16-0.256 0.352-0.256 0.192-0.032 0.352 0.096 0.352 0.224v0z">
+                            </path>
+                            <path
+                                d="M12.128 26.4c0.032 0.128-0.096 0.256-0.288 0.288s-0.352-0.032-0.384-0.16c-0.032-0.128 0.096-0.256 0.288-0.288s0.352 0.032 0.384 0.16v0z">
+                            </path>
+                        </symbol>
+
+                        <symbol id="icon-location" viewBox="0 0 32 32">
+                            <title>location</title>
+                            <path
+                                d="M16 31.68c-0.352 0-0.672-0.064-1.024-0.16-0.8-0.256-1.44-0.832-1.824-1.6l-6.784-13.632c-1.664-3.36-1.568-7.328 0.32-10.592 1.856-3.2 4.992-5.152 8.608-5.376h1.376c3.648 0.224 6.752 2.176 8.608 5.376 1.888 3.264 2.016 7.232 0.352 10.592l-6.816 13.664c-0.288 0.608-0.8 1.12-1.408 1.408-0.448 0.224-0.928 0.32-1.408 0.32zM15.392 2.368c-2.88 0.192-5.408 1.76-6.912 4.352-1.536 2.688-1.632 5.92-0.288 8.672l6.816 13.632c0.128 0.256 0.352 0.448 0.64 0.544s0.576 0.064 0.832-0.064c0.224-0.096 0.384-0.288 0.48-0.48l6.816-13.664c1.376-2.752 1.248-5.984-0.288-8.672-1.472-2.56-4-4.128-6.88-4.32h-1.216zM16 17.888c-3.264 0-5.92-2.656-5.92-5.92 0-3.232 2.656-5.888 5.92-5.888s5.92 2.656 5.92 5.92c0 3.264-2.656 5.888-5.92 5.888zM16 8.128c-2.144 0-3.872 1.728-3.872 3.872s1.728 3.872 3.872 3.872 3.872-1.728 3.872-3.872c0-2.144-1.76-3.872-3.872-3.872z">
+                            </path>
+                            <path
+                                d="M16 32c-0.384 0-0.736-0.064-1.12-0.192-0.864-0.288-1.568-0.928-1.984-1.728l-6.784-13.664c-1.728-3.456-1.6-7.52 0.352-10.912 1.888-3.264 5.088-5.28 8.832-5.504h1.376c3.744 0.224 6.976 2.24 8.864 5.536 1.952 3.36 2.080 7.424 0.352 10.912l-6.784 13.632c-0.32 0.672-0.896 1.216-1.568 1.568-0.48 0.224-0.992 0.352-1.536 0.352zM15.36 0.64h-0.064c-3.488 0.224-6.56 2.112-8.32 5.216-1.824 3.168-1.952 7.040-0.32 10.304l6.816 13.632c0.32 0.672 0.928 1.184 1.632 1.44s1.472 0.192 2.176-0.16c0.544-0.288 1.024-0.736 1.28-1.28l6.816-13.632c1.632-3.264 1.504-7.136-0.32-10.304-1.824-3.104-4.864-5.024-8.384-5.216h-1.312zM16 29.952c-0.16 0-0.32-0.032-0.448-0.064-0.352-0.128-0.64-0.384-0.8-0.704l-6.816-13.664c-1.408-2.848-1.312-6.176 0.288-8.96 1.536-2.656 4.16-4.32 7.168-4.512h1.216c3.040 0.192 5.632 1.824 7.2 4.512 1.6 2.752 1.696 6.112 0.288 8.96l-6.848 13.632c-0.128 0.288-0.352 0.512-0.64 0.64-0.192 0.096-0.384 0.16-0.608 0.16zM15.424 2.688c-2.784 0.192-5.216 1.696-6.656 4.192-1.504 2.592-1.6 5.696-0.256 8.352l6.816 13.632c0.096 0.192 0.256 0.32 0.448 0.384s0.416 0.064 0.608-0.032c0.16-0.064 0.288-0.192 0.352-0.352l6.816-13.664c1.312-2.656 1.216-5.792-0.288-8.352-1.472-2.464-3.904-4-6.688-4.16h-1.152zM16 18.208c-3.424 0-6.24-2.784-6.24-6.24 0-3.424 2.816-6.208 6.24-6.208s6.24 2.784 6.24 6.24c0 3.424-2.816 6.208-6.24 6.208zM16 6.4c-3.072 0-5.6 2.496-5.6 5.6 0 3.072 2.528 5.6 5.6 5.6s5.6-2.496 5.6-5.6c0-3.104-2.528-5.6-5.6-5.6zM16 16.16c-2.304 0-4.16-1.888-4.16-4.16s1.888-4.16 4.16-4.16c2.304 0 4.16 1.888 4.16 4.16s-1.856 4.16-4.16 4.16zM16 8.448c-1.952 0-3.552 1.6-3.552 3.552s1.6 3.552 3.552 3.552c1.952 0 3.552-1.6 3.552-3.552s-1.6-3.552-3.552-3.552z">
+                            </path>
+                        </symbol>
+
+                        <symbol id="icon-facebook" viewBox="0 0 32 32">
+                            <title>facebook</title>
+                            <path
+                                d="M19 6h5v-6h-5c-3.86 0-7 3.14-7 7v3h-4v6h4v16h6v-16h5l1-6h-6v-3c0-0.542 0.458-1 1-1z">
+                            </path>
+                        </symbol>
+
+                        <symbol id="icon-instagram" viewBox="0 0 32 32">
+                            <title>instagram</title>
+                            <path
+                                d="M16 2.881c4.275 0 4.781 0.019 6.462 0.094 1.563 0.069 2.406 0.331 2.969 0.55 0.744 0.288 1.281 0.638 1.837 1.194 0.563 0.563 0.906 1.094 1.2 1.838 0.219 0.563 0.481 1.412 0.55 2.969 0.075 1.688 0.094 2.194 0.094 6.463s-0.019 4.781-0.094 6.463c-0.069 1.563-0.331 2.406-0.55 2.969-0.288 0.744-0.637 1.281-1.194 1.837-0.563 0.563-1.094 0.906-1.837 1.2-0.563 0.219-1.413 0.481-2.969 0.55-1.688 0.075-2.194 0.094-6.463 0.094s-4.781-0.019-6.463-0.094c-1.563-0.069-2.406-0.331-2.969-0.55-0.744-0.288-1.281-0.637-1.838-1.194-0.563-0.563-0.906-1.094-1.2-1.837-0.219-0.563-0.481-1.413-0.55-2.969-0.075-1.688-0.094-2.194-0.094-6.463s0.019-4.781 0.094-6.463c0.069-1.563 0.331-2.406 0.55-2.969 0.288-0.744 0.638-1.281 1.194-1.838 0.563-0.563 1.094-0.906 1.838-1.2 0.563-0.219 1.412-0.481 2.969-0.55 1.681-0.075 2.188-0.094 6.463-0.094zM16 0c-4.344 0-4.887 0.019-6.594 0.094-1.7 0.075-2.869 0.35-3.881 0.744-1.056 0.412-1.95 0.956-2.837 1.85-0.894 0.888-1.438 1.781-1.85 2.831-0.394 1.019-0.669 2.181-0.744 3.881-0.075 1.713-0.094 2.256-0.094 6.6s0.019 4.887 0.094 6.594c0.075 1.7 0.35 2.869 0.744 3.881 0.413 1.056 0.956 1.95 1.85 2.837 0.887 0.887 1.781 1.438 2.831 1.844 1.019 0.394 2.181 0.669 3.881 0.744 1.706 0.075 2.25 0.094 6.594 0.094s4.888-0.019 6.594-0.094c1.7-0.075 2.869-0.35 3.881-0.744 1.050-0.406 1.944-0.956 2.831-1.844s1.438-1.781 1.844-2.831c0.394-1.019 0.669-2.181 0.744-3.881 0.075-1.706 0.094-2.25 0.094-6.594s-0.019-4.887-0.094-6.594c-0.075-1.7-0.35-2.869-0.744-3.881-0.394-1.063-0.938-1.956-1.831-2.844-0.887-0.887-1.781-1.438-2.831-1.844-1.019-0.394-2.181-0.669-3.881-0.744-1.712-0.081-2.256-0.1-6.6-0.1v0z">
+                            </path>
+                            <path
+                                d="M16 7.781c-4.537 0-8.219 3.681-8.219 8.219s3.681 8.219 8.219 8.219 8.219-3.681 8.219-8.219c0-4.537-3.681-8.219-8.219-8.219zM16 21.331c-2.944 0-5.331-2.387-5.331-5.331s2.387-5.331 5.331-5.331c2.944 0 5.331 2.387 5.331 5.331s-2.387 5.331-5.331 5.331z">
+                            </path>
+                            <path
+                                d="M26.462 7.456c0 1.060-0.859 1.919-1.919 1.919s-1.919-0.859-1.919-1.919c0-1.060 0.859-1.919 1.919-1.919s1.919 0.859 1.919 1.919z">
+                            </path>
+                        </symbol>
+
+                        <symbol id="icon-twitter" viewBox="0 0 32 32">
+                            <title>twitter</title>
+                            <path
+                                d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z">
+                            </path>
+                        </symbol>
+
+                        <symbol id="icon-behance" viewBox="0 0 32 32">
+                            <title>behance</title>
+                            <path
+                                d="M9.281 6.412c0.944 0 1.794 0.081 2.569 0.25 0.775 0.162 1.431 0.438 1.988 0.813 0.55 0.375 0.975 0.875 1.287 1.5 0.3 0.619 0.45 1.394 0.45 2.313 0 0.994-0.225 1.819-0.675 2.481-0.456 0.662-1.119 1.2-2.006 1.625 1.213 0.35 2.106 0.962 2.706 1.831 0.6 0.875 0.887 1.925 0.887 3.163 0 1-0.194 1.856-0.575 2.581-0.387 0.731-0.912 1.325-1.556 1.781-0.65 0.462-1.4 0.8-2.237 1.019-0.831 0.219-1.688 0.331-2.575 0.331h-9.544v-19.688h9.281zM8.719 14.363c0.769 0 1.406-0.181 1.906-0.55 0.5-0.363 0.738-0.963 0.738-1.787 0-0.456-0.081-0.838-0.244-1.131-0.169-0.294-0.387-0.525-0.669-0.688-0.275-0.169-0.588-0.281-0.956-0.344-0.356-0.069-0.731-0.1-1.113-0.1h-4.050v4.6h4.388zM8.956 22.744c0.425 0 0.831-0.038 1.213-0.125 0.387-0.087 0.731-0.219 1.019-0.419 0.287-0.194 0.531-0.45 0.706-0.788 0.175-0.331 0.256-0.756 0.256-1.275 0-1.012-0.287-1.738-0.856-2.175-0.569-0.431-1.325-0.644-2.262-0.644h-4.7v5.419h4.625z">
+                            </path>
+                            <path
+                                d="M22.663 22.675c0.587 0.575 1.431 0.863 2.531 0.863 0.788 0 1.475-0.2 2.044-0.6s0.913-0.825 1.044-1.262h3.45c-0.556 1.719-1.394 2.938-2.544 3.675-1.131 0.738-2.519 1.113-4.125 1.113-1.125 0-2.131-0.181-3.038-0.538-0.906-0.363-1.663-0.869-2.3-1.531-0.619-0.663-1.106-1.45-1.45-2.375-0.337-0.919-0.512-1.938-0.512-3.038 0-1.069 0.175-2.063 0.525-2.981 0.356-0.925 0.844-1.719 1.494-2.387s1.413-1.2 2.313-1.588c0.894-0.387 1.881-0.581 2.975-0.581 1.206 0 2.262 0.231 3.169 0.706 0.9 0.469 1.644 1.1 2.225 1.887s0.994 1.694 1.25 2.706c0.256 1.012 0.344 2.069 0.275 3.175h-10.294c0 1.119 0.375 2.188 0.969 2.756zM27.156 15.188c-0.462-0.512-1.256-0.794-2.212-0.794-0.625 0-1.144 0.106-1.556 0.319-0.406 0.213-0.738 0.475-0.994 0.787-0.25 0.313-0.425 0.65-0.525 1.006-0.1 0.344-0.163 0.663-0.181 0.938h6.375c-0.094-1-0.438-1.738-0.906-2.256z">
+                            </path>
+                            <path d="M20.887 8h7.981v1.944h-7.981v-1.944z"></path>
+                        </symbol>
+
+                        <symbol id="icon-link" viewBox="0 0 32 32">
+                            <title>link</title>
+                            <path
+                                d="M17.984 11.456c-0.704 0.704-0.704 1.856 0 2.56 2.112 2.112 2.112 5.568 0 7.68l-5.12 5.12c-2.048 2.048-5.632 2.048-7.68 0-1.024-1.024-1.6-2.4-1.6-3.84s0.576-2.816 1.6-3.84c0.704-0.704 0.704-1.856 0-2.56s-1.856-0.704-2.56 0c-1.696 1.696-2.624 3.968-2.624 6.368 0 2.432 0.928 4.672 2.656 6.4 1.696 1.696 3.968 2.656 6.4 2.656s4.672-0.928 6.4-2.656l5.12-5.12c3.52-3.52 3.52-9.248 0-12.8-0.736-0.672-1.888-0.672-2.592 0.032z">
+                            </path>
+                            <path
+                                d="M29.344 2.656c-1.696-1.728-3.968-2.656-6.4-2.656s-4.672 0.928-6.4 2.656l-5.12 5.12c-3.52 3.52-3.52 9.248 0 12.8 0.352 0.352 0.8 0.544 1.28 0.544s0.928-0.192 1.28-0.544c0.704-0.704 0.704-1.856 0-2.56-2.112-2.112-2.112-5.568 0-7.68l5.12-5.12c2.048-2.048 5.632-2.048 7.68 0 1.024 1.024 1.6 2.4 1.6 3.84s-0.576 2.816-1.6 3.84c-0.704 0.704-0.704 1.856 0 2.56s1.856 0.704 2.56 0c1.696-1.696 2.656-3.968 2.656-6.4s-0.928-4.704-2.656-6.4z">
+                            </path>
+                        </symbol>
+                    </defs>
+                </svg>
+
+
+
+            </div>
+
+
+            <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+            <link rel="stylesheet" href="alert/dist/sweetalert.css">
+            <script type="text/javascript">
+                function openForm() {
+                    swal("Are you sure you want to Leave?", {
+                        buttons: ["cancel", true],
+                    });
+                }
+
+            </script>
+
+
+
+
+            <script src="script.js"></script>
+        </body>
+
+        </html>

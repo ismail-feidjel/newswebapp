@@ -1,3 +1,5 @@
+<% if(session.getAttribute("name")==null){ response.sendRedirect("login.jsp"); } %>
+    <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,8 +7,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Explore</title>
+    <title>Art</title>
     <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/style2.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
 </head>
 
@@ -15,6 +18,7 @@
         <div class="container">
             <h2 class="logo">
                 TECH WEB PROJ
+
             </h2>
 
             <div class="search-bar">
@@ -22,14 +26,19 @@
                 <input type="search" placeholder="Search for creators,news">
 
             </div>
-            <div class="create">
-                <label class="btn btn-primary" for="create-post" onclick="openForm()">Join</label>
+               <div class="dropdown">
+                        <button style="border-radius: 8%;" class="btn ">
+                            <%=session.getAttribute("name")%>
+                                <i class="uil uil-angle-down"></i>
+                        </button>
+                        <div class="dropdown-content">
 
-            <a href="#" class="profile-picture" onclick="openFormprofile()">
-                <img src="images/profile-1.jpg" class="img-fluid user-m rounded-circle" alt="" />
-            </a>
-
-            </div>
+                            <a href="#"><i class="uil uil-user"></i>Profile</a>
+                            <a href="#"><i class="uil uil-cog"></i>Settings</a>
+                            <a href="#"><i class="uil uil-question-circle"></i>Help</a>
+                            <a href="logout"><i class="uil uil-sign-out-alt"></i>Logout</a>
+                        </div>
+                    </div>
         </div>
         </div>
     </nav>
@@ -41,36 +50,35 @@
             <div class="left">
                 <a class="profile">
                     <div class="profile-picture">
-                        <img src="/images/profile-1.jpg" onclick="openFormprofile()"/>
+                        <img src="/images/profile-1.jpg">
                     </div>
-
                     <div class="handle">
-                        <h4>Feidjel ISMAIL</h4>
+                        <h4><%=session.getAttribute("name")%></h4>
                         <p class="text-muted">
-                            @ISOU
+                            @<%=session.getAttribute("name")%>
                         </p>
                     </div>
                 </a>
                 <div class="sidebar">
-                    <a class="menu-item " href="index.html">
+                    <a class="menu-item  " href="index.jsp">
                         <span><i class="uil uil-football"></i></span>
                         <h3>Sports</h3>
                     </a>
-                    <a class="menu-item  " href="Technology.html">
+                    <a class="menu-item  " href="Technology.jsp">
                         <span><i class="uil uil-robot"></i></span>
                         <h3>Technologry</h3>
                     </a>
-                    <a class="menu-item  " href="art.html">
+                    <a class="menu-item active " >
                         <span><i class="uil uil-palette"></i></span>
                         <h3>Art</h3>
                     </a>
                 
-                    <a class="menu-item active" >
+                    <a class="menu-item " href="explore.jsp">
                         <span><i class="uil uil-compass"></i></span>
                         <h3>Explore Video
                         </h3>
                     </a>
-                    <a class="menu-item  " id="messages-notificatons" href="inter.html">
+                    <a class="menu-item  " id="messages-notificatons" href="inter.jsp">
                         <span><i class="uil uil-newspaper">
                                 <small class="notifications-count">6+</small>
                             </i></span>
@@ -148,7 +156,7 @@
                     </a>
                 
                 
-                    <a class="menu-item  " href="Analyses.html">
+                    <a class="menu-item  " href="Analyses.jsp">
                         <span><i class="uil uil-analysis"></i></span>
                         <h3>Analytis</h3>
                     </a>
@@ -156,78 +164,173 @@
                         <span><i class="uil uil-paint-tool"></i></span>
                         <h3>Theme</h3>
                     </a>
-                    <a class="menu-item " href="settings.html">
+                    <a class="menu-item " href="settings.jsp">
                         <span><i class="uil uil-sliders-v"></i></span>
                         <h3>Settings</h3>
                     </a>
                 
                 </div>
                 <!--end of side bar------------------->
-                <label class="logout" for="create-post" onclick="openForm()"><i
-                        class="uil uil-sign-out-alt"></i></label>
-
-
+            <a href="#">
+                <button class="btn btn-primary" onclick="openForm()">
+                    Signout(<%=session.getAttribute("name")%>)
+                        <i class="uil uil-sign-out-alt"></i>
+                </button>
+            </a>
 
             </div>
             <!--middle------------------->
             <div class="middle">
 
-                <!------------------------------------------>
-
-
-                <!------------------------------------------>
-                <div class="feeds">
-                    <div class="feed">
-                        <div class="head">
-                            <div class="user">
-                                
-                                <div class="ingo">
-                                    <h2>ISmailCoder</h2>
-                                    <small>Bousaada- 1hour Ago </small>
-                                </div>
-                                <span class="edit">
-                                    <i class="uil uil-ellipsis-h"></i>
-                                </span>
+                <div class="container1">
+                    <h5 class="heading"> Arts:</h5>
+                    <div class="box-container">
+                
+                        <div class="box">
+                            <div class="image">
+                                <img src="images/img-1.jpg" alt="">
                             </div>
-                            <div class="caption">
-                                <p class="main-vid-title"> forget that
-                                </p>
-                                <div class=" comments text-muted">
-                                    View By 277k Person
+                            <div class="content">
+                                <h3>blog title goes here</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
+                                <a href="#" class="btn">read more</a>
+                                <div class="icons">
+                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
+                                    <span> <i class="fas fa-user"></i> by admin </span>
                                 </div>
-                            </div>
-                            <div class="video">
-                                <video src="video/vid-1.mp4" loop controls class="main-video"></video>
-
-                            </div>
-                            <div class="action-buttons">
-                                <div class="interaction-buttons">
-                                    <span><i class="uil uil-heart"></i></span>
-                                    <span><i class="uil uil-comment-dots"></i></span>
-                                    <span><i class="uil uil-share-alt"></i></span>
-                                </div>
-                                <div class="bookmark">
-                                    <i class="uil uil-bookmark"></i>
-                                </div>
-                            </div>
-                            <div class="liked-by">
-                                <span><img src="/images/profile-4.jpg" alt=""></span>
-                                <span><img src="/images/profile-4.jpg" alt=""></span>
-                                <span><img src="/images/profile-4.jpg" alt=""></span>
-                                <p>Liked by <b>Feidjel ismail</b> and
-                                    233 other
-                                </p>
                             </div>
                         </div>
+                
+                        <div class="box">
+                            <div class="image">
+                                <img src="images/img-2.jpg" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>blog title goes here</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
+                                <a href="#" class="btn">read more</a>
+                                <div class="icons">
+                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
+                                    <span> <i class="fas fa-user"></i> by admin </span>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="box">
+                            <div class="image">
+                                <img src="images/img-3.jpg" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>blog title goes here</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
+                                <a href="#" class="btn">read more</a>
+                                <div class="icons">
+                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
+                                    <span> <i class="fas fa-user"></i> by admin </span>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="box">
+                            <div class="image">
+                                <img src="images/img-4.jpg" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>blog title goes here</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
+                                <a href="#" class="btn">read more</a>
+                                <div class="icons">
+                                    <span> <i class="fas fa-calendar"></i> 21st apr, 2022 </span>
+                                    <span> <i class="fas fa-user"></i> by admin </span>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="box">
+                            <div class="image">
+                                <img src="images/img-5.jpg" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>blog title goes here</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
+                                <a href="#" class="btn">read more</a>
+                                <div class="icons">
+                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
+                                    <span> <i class="fas fa-user"></i> by admin </span>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="box">
+                            <div class="image">
+                                <img src="images/img-6.jpg" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>blog title goes here</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
+                                <a href="#" class="btn">read more</a>
+                                <div class="icons">
+                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
+                                    <span> <i class="fas fa-user"></i> by admin </span>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="box">
+                            <div class="image">
+                                <img src="images/img-7.jpg" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>blog title goes here</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
+                                <a href="#" class="btn">read more</a>
+                                <div class="icons">
+                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
+                                    <span> <i class="fas fa-user"></i> by admin </span>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="box">
+                            <div class="image">
+                                <img src="images/img-8.jpg" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>blog title goes here</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
+                                <a href="#" class="btn">read more</a>
+                                <div class="icons">
+                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
+                                    <span> <i class="fas fa-user"></i> by admin </span>
+                                </div>
+                            </div>
+                        </div>
+                
+                        <div class="box">
+                            <div class="image">
+                                <img src="images/img-9.jpg" alt="">
+                            </div>
+                            <div class="content">
+                                <h3>blog title goes here</h3>
+                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
+                                <a href="#" class="btn">read more</a>
+                                <div class="icons">
+                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
+                                    <span> <i class="fas fa-user"></i> by admin </span>
+                                </div>
+                            </div>
+                        </div>
+                
                     </div>
-
-
-
+                
+                    <div id="load-more"> load more </div>
+                
                 </div>
+
             </div>
 
             <!--right------------------->
-            <div class="right">
+            <div class="right" style="display: none;">
                 <div class="messages ">
                     <div class="heading">
 
@@ -245,54 +348,54 @@
                     </div>
 
                     <!--the body ------------------->
-                <div class="video-list-container">
-                
-                    <div class="list active ">
-                        <video src="video/vid-1.mp4" class="list-video"></video>
-                        <p class="list-title">house flood animation</p>
+                    <div class="video-list-container">
+
+                        <div class="list active ">
+                            <video src="video/vid-1.mp4" class="list-video"></video>
+                            <p class="list-title">house flood animation</p>
+                        </div>
+
+                        <div class="list">
+                            <video src="video/vid-2.mp4" class="list-video"></video>
+                            <p class="list-title">zoombie walking animation</p>
+                        </div>
+
+                        <div class="list">
+                            <video src="video/vid-3.mp4" class="list-video"></video>
+                            <p class="list-title">emoji falling animation</p>
+                        </div>
+
+                        <div class="list">
+                            <video src="video/vid-4.mp4" class="list-video"></video>
+                            <p class="list-title">3D town animation</p>
+                        </div>
+
+                        <div class="list">
+                            <video src="video/vid-5.mp4" class="list-video"></video>
+                            <p class="list-title">man chasing carrot animation</p>
+                        </div>
+
+                        <div class="list">
+                            <video src="video/vid-6.mp4" class="list-video"></video>
+                            <p class="list-title">door hinge animation</p>
+                        </div>
+
+                        <div class="list">
+                            <video src="video/vid-7.mp4" class="list-video"></video>
+                            <p class="list-title">poeple walking in town animation</p>
+                        </div>
+
+                        <div class="list">
+                            <video src="video/vid-8.mp4" class="list-video"></video>
+                            <p class="list-title">knight chasing virus animation</p>
+                        </div>
+
+                        <div class="list">
+                            <video src="video/vid-9.mp4" class="list-video"></video>
+                            <p class="list-title">3D helicopter animation</p>
+                        </div>
+
                     </div>
-                
-                    <div class="list">
-                        <video src="video/vid-2.mp4" class="list-video"></video>
-                        <p class="list-title">zoombie walking animation</p>
-                    </div>
-                
-                    <div class="list">
-                        <video src="video/vid-3.mp4" class="list-video"></video>
-                        <p class="list-title">emoji falling animation</p>
-                    </div>
-                
-                    <div class="list">
-                        <video src="video/vid-4.mp4" class="list-video"></video>
-                        <p class="list-title">3D town animation</p>
-                    </div>
-                
-                    <div class="list">
-                        <video src="video/vid-5.mp4" class="list-video"></video>
-                        <p class="list-title">man chasing carrot animation</p>
-                    </div>
-                
-                    <div class="list">
-                        <video src="video/vid-6.mp4" class="list-video"></video>
-                        <p class="list-title">door hinge animation</p>
-                    </div>
-                
-                    <div class="list">
-                        <video src="video/vid-7.mp4" class="list-video"></video>
-                        <p class="list-title">poeple walking in town animation</p>
-                    </div>
-                
-                    <div class="list">
-                        <video src="video/vid-8.mp4" class="list-video"></video>
-                        <p class="list-title">knight chasing virus animation</p>
-                    </div>
-                
-                    <div class="list">
-                        <video src="video/vid-9.mp4" class="list-video"></video>
-                        <p class="list-title">3D helicopter animation</p>
-                    </div>
-                
-                </div>
 
 
 
@@ -300,7 +403,7 @@
 
 
 
-            </div>
+           
         </div>
     </main>
 
@@ -359,7 +462,6 @@
             </div>
         </div>
     </div>
-
     <div class="customize-theme" id="profileform">
     
     
@@ -591,66 +693,28 @@
     
     
     </div>
-    <div class="customize-theme" id="loginform">
-        <div class="wrapper">
-            <div class="title-text">
-                <div class="title login">
-                    LogIN Here
-                </div>
-                <div class="title signup">
-                    Create Account
-                </div>
-            </div>
-            <div class="form-container">
-                <div class="slide-container">
-                    <input type="radio" name="slide" id="login" checked>
-                    <input type="radio" name="slide" id="signup">
-                    <label for="login" class="slide login">Login</label>
-                    <label for="signup" class="slide signup">Signup</label>
-                    <div class="slider-tab"></div>
-                </div>
-                <div class="form-inner">
-                    <form action="#" class="login">
-                        <div class="field">
-                            <input type="text" placeholder="Email Address" required>
-                        </div>
-                        <div class="field">
-                            <input type="password" placeholder="Password" required>
-                        </div>
-                        <div class="pass-link">
-                            <a href="#">Forgot password?</a>
-                        </div>
-                        <div class="field btn">
-                            <input type="submit" value="Login">
-                        </div>
-                        <div class="signup-link">
-                            Not a member? <a href="">Signup now</a>
-                        </div>
-                    </form>
-                    <form action="#" class="signup">
-                        <div class="field">
-                            <input type="text" placeholder="Email Address" required>
-                        </div>
-                        <div class="field">
-                            <input type="password" placeholder="Password" required>
-                        </div>
-                        <div class="field">
-                            <input type="password" placeholder="Confirm password" required>
-                        </div>
-                        <div class="field btn">
-                            <input type="submit" value="Signup">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
+      
 
 
     <!---->
+<script>
 
+    let loadMoreBtn = document.querySelector('#load-more');
+    let currentItem = 3;
+
+    loadMoreBtn.onclick = () => {
+        let boxes = [...document.querySelectorAll('.container .box-container .box')];
+        for (var i = currentItem; i < currentItem + 3; i++) {
+            boxes[i].style.display = 'inline-block';
+        }
+        currentItem += 3;
+
+        if (currentItem >= boxes.length) {
+            loadMoreBtn.style.display = 'none';
+        }
+    }
+
+</script>
 
 
 
@@ -660,6 +724,16 @@
 
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="alert/dist/sweetalert.css">
+    <script type="text/javascript">
+        function openForm() {
+            swal("Are you sure you want to Leave?", {
+                buttons: ["cancel", true],
+            });
+        }
+
+    </script>
 </body>
 
 </html>

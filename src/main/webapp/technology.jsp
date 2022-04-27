@@ -1,3 +1,5 @@
+<% if(session.getAttribute("name")==null){ response.sendRedirect("login.jsp"); } %>
+    <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,9 +7,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art</title>
+    <title>technology</title>
     <link rel="stylesheet" href="style/style.css">
-    <link rel="stylesheet" href="style/style2.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
 </head>
 
@@ -24,13 +25,18 @@
                 <input type="search" placeholder="Search for creators,news">
 
             </div>
-            <div class="create">
-                <label class="btn btn-primary" for="create-post" onclick="openForm()">Join</label>
+            <div class="dropdown">
+                <button style="border-radius: 8%;" class="btn ">
+                    <%=session.getAttribute("name")%>
+                        <i class="uil uil-angle-down"></i>
+                </button>
+                <div class="dropdown-content">
 
-            <a href="#" class="profile-picture" onclick="openFormprofile()">
-                <img src="images/profile-1.jpg" class="img-fluid user-m rounded-circle" alt="" />
-            </a>
-
+                    <a href="#"><i class="uil uil-user"></i>Profile</a>
+                    <a href="#"><i class="uil uil-cog"></i>Settings</a>
+                    <a href="#"><i class="uil uil-question-circle"></i>Help</a>
+                    <a href="logout"><i class="uil uil-sign-out-alt"></i>Logout</a>
+                </div>
             </div>
         </div>
         </div>
@@ -43,41 +49,43 @@
             <div class="left">
                 <a class="profile">
                     <div class="profile-picture">
-                        <img src="/images/profile-1.jpg">
+                        <img src="../webapp/images/profile-1.jpg">
                     </div>
                     <div class="handle">
-                        <h4>Feidjel ISMAIL</h4>
+                        <h4>
+                            <%=session.getAttribute("name")%>
+                        </h4>
                         <p class="text-muted">
-                            @ISOU
+                            @<%=session.getAttribute("name")%>
                         </p>
                     </div>
                 </a>
                 <div class="sidebar">
-                    <a class="menu-item  " href="index.html">
+                    <a class="menu-item  " href="index.jsp">
                         <span><i class="uil uil-football"></i></span>
                         <h3>Sports</h3>
                     </a>
-                    <a class="menu-item  " href="Technology.html">
+                    <a class="menu-item active ">
                         <span><i class="uil uil-robot"></i></span>
                         <h3>Technologry</h3>
                     </a>
-                    <a class="menu-item active " >
+                    <a class="menu-item  " href="art.jsp">
                         <span><i class="uil uil-palette"></i></span>
                         <h3>Art</h3>
                     </a>
-                
-                    <a class="menu-item " href="explore.html">
+
+                    <a class="menu-item " href="explore.jsp">
                         <span><i class="uil uil-compass"></i></span>
                         <h3>Explore Video
                         </h3>
                     </a>
-                    <a class="menu-item  " id="messages-notificatons" href="inter.html">
+                    <a class="menu-item  " id="messages-notificatons" href="inter.jsp">
                         <span><i class="uil uil-newspaper">
                                 <small class="notifications-count">6+</small>
                             </i></span>
                         <h3>Inter News</h3>
                     </a>
-                
+
                     <a class="menu-item  " id="notifications">
                         <span><i class="uil uil-bell"><small class="notifications-count">9+</small></i></span>
                         <h3>Notification</h3>
@@ -85,7 +93,7 @@
                         <div class="notification-popup">
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-1.jpg">
+                                    <img src="../webapp/images/profile-1.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>Salah Ben </b> Posted new News
@@ -95,7 +103,7 @@
                             </div>
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-1.jpg">
+                                    <img src="../webapp/images/profile-1.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>samir Ben </b> Posted new News
@@ -105,7 +113,7 @@
                             </div>
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-3.jpg">
+                                    <img src="../webapp/images/profile-3.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>samir Ben </b> Posted new News
@@ -115,7 +123,7 @@
                             </div>
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-4.jpg">
+                                    <img src="../webapp/images/profile-4.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>samir Ben </b> Posted new News
@@ -125,7 +133,7 @@
                             </div>
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-1.jpg">
+                                    <img src="../webapp/images/profile-1.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>samir</b> Posted new News
@@ -135,7 +143,7 @@
                             </div>
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-2.jpg">
+                                    <img src="../webapp/images/profile-2.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>samir Ben </b> Posted new News
@@ -144,12 +152,12 @@
                                 </div>
                             </div>
                         </div>
-                
-                
+
+
                     </a>
-                
-                
-                    <a class="menu-item  " href="Analyses.html">
+
+
+                    <a class="menu-item  " href="Analyses.jsp">
                         <span><i class="uil uil-analysis"></i></span>
                         <h3>Analytis</h3>
                     </a>
@@ -157,179 +165,301 @@
                         <span><i class="uil uil-paint-tool"></i></span>
                         <h3>Theme</h3>
                     </a>
-                    <a class="menu-item " href="settings.html">
+                    <a class="menu-item " href="settings.jsp">
                         <span><i class="uil uil-sliders-v"></i></span>
                         <h3>Settings</h3>
                     </a>
-                
+
                 </div>
                 <!--end of side bar------------------->
-                <label class="logout" for="create-post" onclick="openForm()"><i
-                        class="uil uil-sign-out-alt"></i></label>
-
-
+                <a href="#">
+                    <button class="btn btn-primary" onclick="openForm()">
+                        Signout(<%=session.getAttribute("name")%>)
+                            <i class="uil uil-sign-out-alt"></i>
+                    </button>
+                </a>
 
             </div>
             <!--middle------------------->
             <div class="middle">
 
-                <div class="container1">
-                    <h5 class="heading"> Arts:</h5>
-                    <div class="box-container">
-                
-                        <div class="box">
-                            <div class="image">
-                                <img src="images/img-1.jpg" alt="">
-                            </div>
+                <!------------------------------------------>
+                <div class="wrapperr">
+                    <section class="post">
+                        <header>Create Post</header>
+                        <form action="#">
                             <div class="content">
-                                <h3>blog title goes here</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
-                                <a href="#" class="btn">read more</a>
-                                <div class="icons">
-                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
-                                    <span> <i class="fas fa-user"></i> by admin </span>
+                                <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                </a>
+                                <div class="details">
+                                    <p>ISMAIL FEI</p>
+                                    <div class="privacy">
+                                        <i class="fas fa-user-friends"></i>
+                                        <span>Admin</span>
+                                        <i class="fas fa-caret-down"></i>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                
-                        <div class="box">
-                            <div class="image">
-                                <img src="images/img-2.jpg" alt="">
+                            <textarea placeholder="What's on your mind, ISMAIL?" spellcheck="false" required></textarea>
+
+                            <div class="options">
+                                <p>Add to Your Post</p>
+                                <ul class="list">
+                                    <li><img src="icons/gallery.svg" alt="gallery"></li>
+                                    <li><img src="icons/tag.svg" alt="gallery"></li>
+                                    <li><img src="icons/emoji.svg" alt="gallery"></li>
+                                    <li><img src="icons/mic.svg" alt="gallery"></li>
+                                    <li><img src="icons/more.svg" alt="gallery"></li>
+                                </ul>
                             </div>
-                            <div class="content">
-                                <h3>blog title goes here</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
-                                <a href="#" class="btn">read more</a>
-                                <div class="icons">
-                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
-                                    <span> <i class="fas fa-user"></i> by admin </span>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class="box">
-                            <div class="image">
-                                <img src="images/img-3.jpg" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>blog title goes here</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
-                                <a href="#" class="btn">read more</a>
-                                <div class="icons">
-                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
-                                    <span> <i class="fas fa-user"></i> by admin </span>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class="box">
-                            <div class="image">
-                                <img src="images/img-4.jpg" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>blog title goes here</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
-                                <a href="#" class="btn">read more</a>
-                                <div class="icons">
-                                    <span> <i class="fas fa-calendar"></i> 21st apr, 2022 </span>
-                                    <span> <i class="fas fa-user"></i> by admin </span>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class="box">
-                            <div class="image">
-                                <img src="images/img-5.jpg" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>blog title goes here</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
-                                <a href="#" class="btn">read more</a>
-                                <div class="icons">
-                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
-                                    <span> <i class="fas fa-user"></i> by admin </span>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class="box">
-                            <div class="image">
-                                <img src="images/img-6.jpg" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>blog title goes here</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
-                                <a href="#" class="btn">read more</a>
-                                <div class="icons">
-                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
-                                    <span> <i class="fas fa-user"></i> by admin </span>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class="box">
-                            <div class="image">
-                                <img src="images/img-7.jpg" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>blog title goes here</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
-                                <a href="#" class="btn">read more</a>
-                                <div class="icons">
-                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
-                                    <span> <i class="fas fa-user"></i> by admin </span>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class="box">
-                            <div class="image">
-                                <img src="images/img-8.jpg" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>blog title goes here</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
-                                <a href="#" class="btn">read more</a>
-                                <div class="icons">
-                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
-                                    <span> <i class="fas fa-user"></i> by admin </span>
-                                </div>
-                            </div>
-                        </div>
-                
-                        <div class="box">
-                            <div class="image">
-                                <img src="images/img-9.jpg" alt="">
-                            </div>
-                            <div class="content">
-                                <h3>blog title goes here</h3>
-                                <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quod, adipisci!</p>
-                                <a href="#" class="btn">read more</a>
-                                <div class="icons">
-                                    <span> <i class="fas fa-calendar"></i> 21st may, 2022 </span>
-                                    <span> <i class="fas fa-user"></i> by admin </span>
-                                </div>
-                            </div>
-                        </div>
-                
-                    </div>
-                
-                    <div id="load-more"> load more </div>
-                
+                            <button>Post</button>
+                        </form>
+                    </section>
+
                 </div>
 
+                <!------------------------------------------>
+                <div class="feeds">
+                    <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                                <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                </a>
+                                <div class="ingo">
+                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
+                                    <small>Bousaada- 1hour Ago </small>
+                                </div>
+                                <span class="edit">
+                                    <i class="uil uil-ellipsis-h"></i>
+                                </span>
+                            </div>
+                            <div class="caption">
+                                <p><b>في مارس 2022 ، تم تثبيت أكثر من 20 صرافة الية للعملات المشفرة يوميًا في الدول التي
+                                        تدعم هذه العملات . بينما يوجد بالفعل
+                                        أكثر من 36 ألف صرافة الية على مستوى العالم.
+                                    </b><br> <span class="harch-tag">#sport</span>
+                                </p>
+                                <div class=" comments text-muted">
+                                    View By 277k Person
+                                </div>
+                            </div>
+                            <div class="photo">
+                                <img src="../webapp/images/feed-11.jpg" alt="">
+                            </div>
+                            <div class="action-buttons">
+                                <div class="interaction-buttons">
+                                    <span><i class="uil uil-heart"></i></span>
+                                    <span><i class="uil uil-comment-dots"></i></span>
+                                    <span><i class="uil uil-share-alt"></i></span>
+                                </div>
+                                <div class="bookmark">
+                                    <i class="uil uil-bookmark"></i>
+                                </div>
+                            </div>
+                            <div class="liked-by">
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-2.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                <p>Liked by <b>Feidjel ismail</b> and
+                                    233 other
+                                </p>
+                            </div>
+                        </div>
+                        <div class="head">
+                            <div class="user">
+                                <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                </a>
+                                <div class="ingo">
+                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
+                                    <small>Bousaada- 1hour Ago </small>
+                                </div>
+                                <span class="edit">
+                                    <i class="uil uil-ellipsis-h"></i>
+                                </span>
+                            </div>
+                            <div class="caption">
+                                <p><b> واتس آب تطلق إضافة جديدة على iOS ستجنب المستخدمين مشاكل خيار Last Seen
+                                        https://bit.ly/38Zjj9X
+                                    </b><br> <span class="harch-tag">#sport</span>
+                                </p>
+                                <div class=" comments text-muted">
+                                    View By 277k Person
+                                </div>
+                            </div>
+                            <div class="photo">
+                                <img src="../webapp/images/feed-12.jpg" alt="">
+                            </div>
+                            <div class="action-buttons">
+                                <div class="interaction-buttons">
+                                    <span><i class="uil uil-heart"></i></span>
+                                    <span><i class="uil uil-comment-dots"></i></span>
+                                    <span><i class="uil uil-share-alt"></i></span>
+                                </div>
+                                <div class="bookmark">
+                                    <i class="uil uil-bookmark"></i>
+                                </div>
+                            </div>
+                            <div class="liked-by">
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                <p>Liked by <b>Feidjel ismail</b> and
+                                    233 other
+                                </p>
+                            </div>
+                        </div>
+                        <div class="head">
+                            <div class="user">
+                                <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                </a>
+                                <div class="ingo">
+                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
+                                    <small>Bousaada- 1hour Ago </small>
+                                </div>
+                                <span class="edit">
+                                    <i class="uil uil-ellipsis-h"></i>
+                                </span>
+                            </div>
+                            <div class="caption">
+                                <p><b> شاهد كيف تقوم شركات عملاقة مثل جوجل بمراقب المايكروفون في اجهزتك وتسجيل كل شيء
+                                        لاستهدافك بالإعلانات الموجهة !
+                                    </b><br> <span class="harch-tag">#sport</span>
+                                </p>
+                                <div class=" comments text-muted">
+                                    View By 277k Person
+                                </div>
+                            </div>
+                            <div class="photo">
+                                <img src="../webapp/images/feed-13.jpg" alt="">
+                            </div>
+                            <div class="action-buttons">
+                                <div class="interaction-buttons">
+                                    <span><i class="uil uil-heart"></i></span>
+                                    <span><i class="uil uil-comment-dots"></i></span>
+                                    <span><i class="uil uil-share-alt"></i></span>
+                                </div>
+                                <div class="bookmark">
+                                    <i class="uil uil-bookmark"></i>
+                                </div>
+                            </div>
+                            <div class="liked-by">
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-7.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-6.jpg" alt=""></span>
+                                <p>Liked by <b>Feidjel ismail</b> and
+                                    233 other
+                                </p>
+                            </div>
+                        </div>
+                        <div class="head">
+                            <div class="user">
+                                <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                </a>
+                                <div class="ingo">
+                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
+                                    <small>Bousaada- 1hour Ago </small>
+                                </div>
+                                <span class="edit">
+                                    <i class="uil uil-ellipsis-h"></i>
+                                </span>
+                            </div>
+                            <div class="caption">
+                                <p><b> منصة رقمية لإنشاء منتجات مخصصة وبيعها عبر الإنترنت بنظام الطباعة حسب الطلب POD |
+                                        لا تفوتك!
+                                        https://bit.ly/3JQ7DTA
+                                    </b><br> <span class="harch-tag">#sport</span>
+                                </p>
+                                <div class=" comments text-muted">
+                                    View By 277k Person
+                                </div>
+                            </div>
+                            <div class="photo">
+                                <img src="../webapp/images/feed-14.jpg" alt="">
+                            </div>
+                            <div class="action-buttons">
+                                <div class="interaction-buttons">
+                                    <span><i class="uil uil-heart"></i></span>
+                                    <span><i class="uil uil-comment-dots"></i></span>
+                                    <span><i class="uil uil-share-alt"></i></span>
+                                </div>
+                                <div class="bookmark">
+                                    <i class="uil uil-bookmark"></i>
+                                </div>
+                            </div>
+                            <div class="liked-by">
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-2.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-1.jpg" alt=""></span>
+                                <p>Liked by <b>Feidjel ismail</b> and
+                                    233 other
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="feed">
+                        <div class="head">
+                            <div class="user">
+                                <a href="#" class="profile-picture" onclick="openFormprofile()">
+                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
+                                </a>
+                                <div class="ingo">
+                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
+                                    <small>Bousaada- 1hour Ago </small>
+                                </div>
+                                <span class="edit">
+                                    <i class="uil uil-ellipsis-h"></i>
+                                </span>
+                            </div>
+                            <div class="caption">
+                                <p><b>
+                                        مواصفات هاتفي Moto G62 5G و Moto G82 5G تظهر على الإنترنت </b><br> <span
+                                        class="harch-tag">#russia</span>
+                                </p>
+                                <div class=" comments text-muted">
+                                    View By 277k Person
+                                </div>
+                            </div>
+                            <div class="photo">
+                                <img src="../webapp/images/feed-15.jpg" alt="">
+                            </div>
+                            <div class="action-buttons">
+                                <div class="interaction-buttons">
+                                    <span><i class="uil uil-heart"></i></span>
+                                    <span><i class="uil uil-comment-dots"></i></span>
+                                    <span><i class="uil uil-share-alt"></i></span>
+                                </div>
+                                <div class="bookmark">
+                                    <i class="uil uil-bookmark"></i>
+                                </div>
+                            </div>
+                            <div class="liked-by">
+                                <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                <p>Liked by <b>Feidjel ismail</b> and
+                                    233 other
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!--right------------------->
-            <div class="right" style="display: none;">
-                <div class="messages ">
+            <div class="right">
+                <div class="messages">
                     <div class="heading">
 
-                        <h4>Watch other</h4><i class="uil uil-star"></i>
+                        <h4>International News</h4><i class="uil uil-star"></i>
                     </div>
                     <div class="search-bar">
                         <i class="uil uil-search"></i>
-                        <input type="search" placeholder="Search Videos" id="message-search">
+                        <input type="search" placeholder="Search News" id="message-search">
                     </div>
                     <!--news categery------------------->
                     <div class="category">
@@ -337,68 +467,70 @@
                         <h6> <i class="uil uil-play"></i><br> Most watched</h6>
                         <h6 class="messages-requests"> <i class="uil uil-rainbow"></i> <br>Folowing(2)</h6>
                     </div>
-
                     <!--the body ------------------->
-                    <div class="video-list-container">
-
-                        <div class="list active ">
-                            <video src="video/vid-1.mp4" class="list-video"></video>
-                            <p class="list-title">house flood animation</p>
+                    <div class="message">
+                        <div class="news-picture ">
+                            <img src="../webapp/images/profile-8.jpg">
                         </div>
-
-                        <div class="list">
-                            <video src="video/vid-2.mp4" class="list-video"></video>
-                            <p class="list-title">zoombie walking animation</p>
+                        <div class="message-body">
+                            <h5 class=".aaa">El Djazair Daily - الجزائر دايلي</h5>
+                            <P class="text-bold">مباراة الإياب : يوم الثلاثاء القادم الساعة 20:30 مساءا بتوقيت الجزائر
+                                على ملعب مصطفى تشاكر بالبليدة بعد الفوز في الذهاب
+                                بنتيجة 1-0</P>
                         </div>
-
-                        <div class="list">
-                            <video src="video/vid-3.mp4" class="list-video"></video>
-                            <p class="list-title">emoji falling animation</p>
-                        </div>
-
-                        <div class="list">
-                            <video src="video/vid-4.mp4" class="list-video"></video>
-                            <p class="list-title">3D town animation</p>
-                        </div>
-
-                        <div class="list">
-                            <video src="video/vid-5.mp4" class="list-video"></video>
-                            <p class="list-title">man chasing carrot animation</p>
-                        </div>
-
-                        <div class="list">
-                            <video src="video/vid-6.mp4" class="list-video"></video>
-                            <p class="list-title">door hinge animation</p>
-                        </div>
-
-                        <div class="list">
-                            <video src="video/vid-7.mp4" class="list-video"></video>
-                            <p class="list-title">poeple walking in town animation</p>
-                        </div>
-
-                        <div class="list">
-                            <video src="video/vid-8.mp4" class="list-video"></video>
-                            <p class="list-title">knight chasing virus animation</p>
-                        </div>
-
-                        <div class="list">
-                            <video src="video/vid-9.mp4" class="list-video"></video>
-                            <p class="list-title">3D helicopter animation</p>
-                        </div>
-
                     </div>
-
+                    <div class="message">
+                        <div class="news-picture ">
+                            <img src="../webapp/images/profile-8.jpg">
+                        </div>
+                        <div class="message-body">
+                            <h5 class=".aaa">ISMAIL - الجزائر دايلي</h5>
+                            <P class="text-bold">مباراة الإياب : يوم الثلاثاء القادم الساعة 20:30 مساءا بتوقيت الجزائر
+                                على ملعب مصطفى تشاكر بالبليدة بعد الفوز في الذهاب
+                                بنتيجة 1-0</P>
+                        </div>
+                    </div>
+                    <div class="message">
+                        <div class="news-picture ">
+                            <img src="../webapp/images/profile-8.jpg">
+                        </div>
+                        <div class="message-body">
+                            <h5 class=".aaa">SALAH - الجزائر دايلي</h5>
+                            <P class="text-bold">مباراة الإياب : يوم الثلاثاء القادم الساعة 20:30 مساءا بتوقيت الجزائر
+                                على ملعب مصطفى تشاكر بالبليدة بعد الفوز في الذهاب
+                                بنتيجة 1-0</P>
+                        </div>
+                    </div>
 
 
                 </div>
 
 
+                <!--Request ------------------->
+                <div class="friend-requests">
+                    <h4>requests</h4>
+                    <div class="request">
+                        <div class="info">
+                            <div class="profile-picture">
+                                <img src="../webapp/images/profile-1.jpg" alt="">
+                            </div>
+                            <div>
+                                <h5>Hajia Omar</h5>
+                                <p class="text-muted"> 8 muta freinds</p>
 
-           
+                            </div>
+                        </div>
+                        <div class="action">
+                            <button class="btn btn-primary">Accept</button>
+                            <button class="btn"> Decline</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 
-
+    <!---->
     <div class="customize-theme">
         <div class="card">
             <h2>Customize Your View</h2>
@@ -454,13 +586,13 @@
         </div>
     </div>
     <div class="customize-theme" id="profileform">
-    
-    
+
+
         <div class="profile-card js-profile-card">
             <div class="profile-card__img">
-                <img src="/images/profile-1.jpg" alt="profile card">
+                <img src="../webapp/images/profile-1.jpg" alt="profile card">
             </div>
-    
+
             <div class="profile-card__cnt js-profile-cnt">
                 <div class="profile-card__name">Feidjel Ismail</div>
                 <div class="profile-card__txt">Front-end Developer from <strong>Mesopotamia</strong></div>
@@ -470,34 +602,34 @@
                             <use xlink:href="#icon-location"></use>
                         </svg>
                     </span>
-    
+
                     <span class="profile-card-loc__txt">
                         Algeria, Msila
                     </span>
                 </div>
-    
+
                 <div class="profile-card-inf">
                     <div class="profile-card-inf__item">
                         <div class="profile-card-inf__title">1598</div>
                         <div class="profile-card-inf__txt">Followers</div>
                     </div>
-    
+
                     <div class="profile-card-inf__item">
                         <div class="profile-card-inf__title">65</div>
                         <div class="profile-card-inf__txt">Following</div>
                     </div>
-    
+
                     <div class="profile-card-inf__item">
                         <div class="profile-card-inf__title">123</div>
                         <div class="profile-card-inf__txt">Articles</div>
                     </div>
-    
+
                     <div class="profile-card-inf__item">
                         <div class="profile-card-inf__title">85</div>
                         <div class="profile-card-inf__txt">Works</div>
                     </div>
                 </div>
-    
+
                 <div class="profile-card-social">
                     <a href="#" class="profile-card-social__item facebook" target="_blank">
                         <span class="icon-font">
@@ -506,7 +638,7 @@
                             </svg>
                         </span>
                     </a>
-    
+
                     <a href="#" class="profile-card-social__item twitter" target="_blank">
                         <span class="icon-font">
                             <svg class="icon">
@@ -514,7 +646,7 @@
                             </svg>
                         </span>
                     </a>
-    
+
                     <a href="#" class="profile-card-social__item instagram" target="_blank">
                         <span class="icon-font">
                             <svg class="icon">
@@ -522,7 +654,7 @@
                             </svg>
                         </span>
                     </a>
-    
+
                     <a href="#" class="profile-card-social__item behance" target="_blank">
                         <span class="icon-font">
                             <svg class="icon">
@@ -530,7 +662,7 @@
                             </svg>
                         </span>
                     </a>
-    
+
                     <a href="#" class="profile-card-social__item github" target="_blank">
                         <span class="icon-font">
                             <svg class="icon">
@@ -538,7 +670,7 @@
                             </svg>
                         </span>
                     </a>
-    
+
                     <a href="#" class="profile-card-social__item codepen" target="_blank">
                         <span class="icon-font">
                             <svg class="icon">
@@ -546,7 +678,7 @@
                             </svg>
                         </span>
                     </a>
-    
+
                     <a href="#" class="profile-card-social__item link" target="_blank">
                         <span class="icon-font">
                             <svg class="icon">
@@ -554,38 +686,38 @@
                             </svg>
                         </span>
                     </a>
-    
+
                 </div>
-    
+
                 <div class="profile-card-ctr">
                     <button class="profile-card__button button--blue js-message-btn">Message</button>
                     <button class="profile-card__button button--orange">Follow</button>
                 </div>
             </div>
-    
+
             <div class="profile-card-message js-message">
                 <form class="profile-card-form">
                     <div class="profile-card-form__container">
                         <textarea placeholder="Say something..."></textarea>
                     </div>
-    
+
                     <div class="profile-card-form__bottom">
                         <button class="profile-card__button button--blue message-close">
                             Send
                         </button>
-    
+
                         <button class="profile-card__button button--gray message-close">
                             Cancel
                         </button>
                     </div>
                 </form>
-    
+
             </div>
-    
+
         </div>
-    
-    
-    
+
+
+
         <svg hidden="hidden">
             <defs>
                 <symbol id="icon-codepen" viewBox="0 0 32 32">
@@ -594,7 +726,7 @@
                         d="M31.872 10.912v-0.032c0-0.064 0-0.064 0-0.096v-0.064c0-0.064 0-0.064-0.064-0.096 0 0 0-0.064-0.064-0.064 0-0.064-0.064-0.064-0.064-0.096 0 0 0-0.064-0.064-0.064 0-0.064-0.064-0.064-0.064-0.096l-0.192-0.192v-0.064l-0.064-0.064-14.592-9.696c-0.448-0.32-1.056-0.32-1.536 0l-14.528 9.696-0.32 0.32c0 0-0.064 0.064-0.064 0.096 0 0 0 0.064-0.064 0.064 0 0.064-0.064 0.064-0.064 0.096 0 0 0 0.064-0.064 0.064 0 0.064 0 0.064-0.064 0.096v0.064c0 0.064 0 0.064 0 0.096v0.064c0 0.064 0 0.096 0 0.16v9.696c0 0.064 0 0.096 0 0.16v0.064c0 0.064 0 0.064 0 0.096v0.064c0 0.064 0 0.064 0.064 0.096 0 0 0 0.064 0.064 0.064 0 0.064 0.064 0.064 0.064 0.096 0 0 0 0.064 0.064 0.064 0 0.064 0.064 0.064 0.064 0.096l0.256 0.256 0.064 0.032 14.528 9.728c0.224 0.16 0.48 0.224 0.768 0.224s0.544-0.064 0.768-0.224l14.528-9.728 0.32-0.32c0 0 0.064-0.064 0.064-0.096 0 0 0-0.064 0.064-0.064 0-0.064 0.064-0.064 0.064-0.096 0 0 0-0.064 0.064-0.064 0-0.064 0-0.064 0.064-0.096v-0.032c0-0.064 0-0.064 0-0.096v-0.064c0-0.064 0-0.096 0-0.16v-9.664c0-0.064 0-0.096 0-0.224zM17.312 4l10.688 7.136-4.768 3.168-5.92-3.936v-6.368zM14.56 4v6.368l-5.92 3.968-4.768-3.168 10.688-7.168zM2.784 13.664l3.392 2.304-3.392 2.304c0 0 0-4.608 0-4.608zM14.56 28l-10.688-7.136 4.768-3.2 5.92 3.936v6.4zM15.936 19.2l-4.832-3.232 4.832-3.232 4.832 3.232-4.832 3.232zM17.312 28v-6.432l5.92-3.936 4.8 3.168-10.72 7.2zM29.12 18.272l-3.392-2.304 3.392-2.304v4.608z">
                     </path>
                 </symbol>
-    
+
                 <symbol id="icon-github" viewBox="0 0 32 32">
                     <title>github</title>
                     <path
@@ -622,7 +754,7 @@
                         d="M12.128 26.4c0.032 0.128-0.096 0.256-0.288 0.288s-0.352-0.032-0.384-0.16c-0.032-0.128 0.096-0.256 0.288-0.288s0.352 0.032 0.384 0.16v0z">
                     </path>
                 </symbol>
-    
+
                 <symbol id="icon-location" viewBox="0 0 32 32">
                     <title>location</title>
                     <path
@@ -632,12 +764,13 @@
                         d="M16 32c-0.384 0-0.736-0.064-1.12-0.192-0.864-0.288-1.568-0.928-1.984-1.728l-6.784-13.664c-1.728-3.456-1.6-7.52 0.352-10.912 1.888-3.264 5.088-5.28 8.832-5.504h1.376c3.744 0.224 6.976 2.24 8.864 5.536 1.952 3.36 2.080 7.424 0.352 10.912l-6.784 13.632c-0.32 0.672-0.896 1.216-1.568 1.568-0.48 0.224-0.992 0.352-1.536 0.352zM15.36 0.64h-0.064c-3.488 0.224-6.56 2.112-8.32 5.216-1.824 3.168-1.952 7.040-0.32 10.304l6.816 13.632c0.32 0.672 0.928 1.184 1.632 1.44s1.472 0.192 2.176-0.16c0.544-0.288 1.024-0.736 1.28-1.28l6.816-13.632c1.632-3.264 1.504-7.136-0.32-10.304-1.824-3.104-4.864-5.024-8.384-5.216h-1.312zM16 29.952c-0.16 0-0.32-0.032-0.448-0.064-0.352-0.128-0.64-0.384-0.8-0.704l-6.816-13.664c-1.408-2.848-1.312-6.176 0.288-8.96 1.536-2.656 4.16-4.32 7.168-4.512h1.216c3.040 0.192 5.632 1.824 7.2 4.512 1.6 2.752 1.696 6.112 0.288 8.96l-6.848 13.632c-0.128 0.288-0.352 0.512-0.64 0.64-0.192 0.096-0.384 0.16-0.608 0.16zM15.424 2.688c-2.784 0.192-5.216 1.696-6.656 4.192-1.504 2.592-1.6 5.696-0.256 8.352l6.816 13.632c0.096 0.192 0.256 0.32 0.448 0.384s0.416 0.064 0.608-0.032c0.16-0.064 0.288-0.192 0.352-0.352l6.816-13.664c1.312-2.656 1.216-5.792-0.288-8.352-1.472-2.464-3.904-4-6.688-4.16h-1.152zM16 18.208c-3.424 0-6.24-2.784-6.24-6.24 0-3.424 2.816-6.208 6.24-6.208s6.24 2.784 6.24 6.24c0 3.424-2.816 6.208-6.24 6.208zM16 6.4c-3.072 0-5.6 2.496-5.6 5.6 0 3.072 2.528 5.6 5.6 5.6s5.6-2.496 5.6-5.6c0-3.104-2.528-5.6-5.6-5.6zM16 16.16c-2.304 0-4.16-1.888-4.16-4.16s1.888-4.16 4.16-4.16c2.304 0 4.16 1.888 4.16 4.16s-1.856 4.16-4.16 4.16zM16 8.448c-1.952 0-3.552 1.6-3.552 3.552s1.6 3.552 3.552 3.552c1.952 0 3.552-1.6 3.552-3.552s-1.6-3.552-3.552-3.552z">
                     </path>
                 </symbol>
-    
+
                 <symbol id="icon-facebook" viewBox="0 0 32 32">
                     <title>facebook</title>
-                    <path d="M19 6h5v-6h-5c-3.86 0-7 3.14-7 7v3h-4v6h4v16h6v-16h5l1-6h-6v-3c0-0.542 0.458-1 1-1z"></path>
+                    <path d="M19 6h5v-6h-5c-3.86 0-7 3.14-7 7v3h-4v6h4v16h6v-16h5l1-6h-6v-3c0-0.542 0.458-1 1-1z">
+                    </path>
                 </symbol>
-    
+
                 <symbol id="icon-instagram" viewBox="0 0 32 32">
                     <title>instagram</title>
                     <path
@@ -650,14 +783,14 @@
                         d="M26.462 7.456c0 1.060-0.859 1.919-1.919 1.919s-1.919-0.859-1.919-1.919c0-1.060 0.859-1.919 1.919-1.919s1.919 0.859 1.919 1.919z">
                     </path>
                 </symbol>
-    
+
                 <symbol id="icon-twitter" viewBox="0 0 32 32">
                     <title>twitter</title>
                     <path
                         d="M32 7.075c-1.175 0.525-2.444 0.875-3.769 1.031 1.356-0.813 2.394-2.1 2.887-3.631-1.269 0.75-2.675 1.3-4.169 1.594-1.2-1.275-2.906-2.069-4.794-2.069-3.625 0-6.563 2.938-6.563 6.563 0 0.512 0.056 1.012 0.169 1.494-5.456-0.275-10.294-2.888-13.531-6.862-0.563 0.969-0.887 2.1-0.887 3.3 0 2.275 1.156 4.287 2.919 5.463-1.075-0.031-2.087-0.331-2.975-0.819 0 0.025 0 0.056 0 0.081 0 3.181 2.263 5.838 5.269 6.437-0.55 0.15-1.131 0.231-1.731 0.231-0.425 0-0.831-0.044-1.237-0.119 0.838 2.606 3.263 4.506 6.131 4.563-2.25 1.762-5.075 2.813-8.156 2.813-0.531 0-1.050-0.031-1.569-0.094 2.913 1.869 6.362 2.95 10.069 2.95 12.075 0 18.681-10.006 18.681-18.681 0-0.287-0.006-0.569-0.019-0.85 1.281-0.919 2.394-2.075 3.275-3.394z">
                     </path>
                 </symbol>
-    
+
                 <symbol id="icon-behance" viewBox="0 0 32 32">
                     <title>behance</title>
                     <path
@@ -668,7 +801,7 @@
                     </path>
                     <path d="M20.887 8h7.981v1.944h-7.981v-1.944z"></path>
                 </symbol>
-    
+
                 <symbol id="icon-link" viewBox="0 0 32 32">
                     <title>link</title>
                     <path
@@ -680,94 +813,35 @@
                 </symbol>
             </defs>
         </svg>
-    
-    
-    
-    </div>
-    <div class="customize-theme" id="loginform">
-        <div class="wrapper">
-            <div class="title-text">
-                <div class="title login">
-                    LogIN Here
-                </div>
-                <div class="title signup">
-                    Create Account
-                </div>
-            </div>
-            <div class="form-container">
-                <div class="slide-container">
-                    <input type="radio" name="slide" id="login" checked>
-                    <input type="radio" name="slide" id="signup">
-                    <label for="login" class="slide login">Login</label>
-                    <label for="signup" class="slide signup">Signup</label>
-                    <div class="slider-tab"></div>
-                </div>
-                <div class="form-inner">
-                    <form action="#" class="login">
-                        <div class="field">
-                            <input type="text" placeholder="Email Address" required>
-                        </div>
-                        <div class="field">
-                            <input type="password" placeholder="Password" required>
-                        </div>
-                        <div class="pass-link">
-                            <a href="#">Forgot password?</a>
-                        </div>
-                        <div class="field btn">
-                            <input type="submit" value="Login">
-                        </div>
-                        <div class="signup-link">
-                            Not a member? <a href="">Signup now</a>
-                        </div>
-                    </form>
-                    <form action="#" class="signup">
-                        <div class="field">
-                            <input type="text" placeholder="Email Address" required>
-                        </div>
-                        <div class="field">
-                            <input type="password" placeholder="Password" required>
-                        </div>
-                        <div class="field">
-                            <input type="password" placeholder="Confirm password" required>
-                        </div>
-                        <div class="field btn">
-                            <input type="submit" value="Signup">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+
 
 
     </div>
+
+    
+
+
+
 
 
     <!---->
-<script>
 
-    let loadMoreBtn = document.querySelector('#load-more');
-    let currentItem = 3;
 
-    loadMoreBtn.onclick = () => {
-        let boxes = [...document.querySelectorAll('.container .box-container .box')];
-        for (var i = currentItem; i < currentItem + 3; i++) {
-            boxes[i].style.display = 'inline-block';
+
+
+
+
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="alert/dist/sweetalert.css">
+    <script type="text/javascript">
+        function openForm() {
+            swal("Are you sure you want to Leave?", {
+                buttons: ["cancel", true],
+            });
         }
-        currentItem += 3;
 
-        if (currentItem >= boxes.length) {
-            loadMoreBtn.style.display = 'none';
-        }
-    }
-
-</script>
-
-
-
-
-
-
-
+    </script>
 
     <script src="script.js"></script>
 </body>

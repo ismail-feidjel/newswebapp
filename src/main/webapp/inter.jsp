@@ -1,3 +1,5 @@
+<% if(session.getAttribute("name")==null){ response.sendRedirect("login.jsp"); } %>
+    <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>technology</title>
+    <title>inter</title>
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="https://unicons.iconscout.com/release/v2.1.6/css/unicons.css">
 </head>
@@ -23,14 +25,19 @@
                 <input type="search" placeholder="Search for creators,news">
 
             </div>
-            <div class="create">
-                <label class="btn btn-primary" for="create-post" onclick="openForm()">Join</label>
+            <div class="dropdown">
+                        <button style="border-radius: 8%;" class="btn ">
+                            <%=session.getAttribute("name")%>
+                                <i class="uil uil-angle-down"></i>
+                        </button>
+                        <div class="dropdown-content">
 
-                <a href="#" class="profile-picture" onclick="openFormprofile()">
-                    <img src="images/profile-1.jpg" class="img-fluid user-m rounded-circle" alt="" />
-                </a>
-
-            </div>
+                            <a href="#"><i class="uil uil-user"></i>Profile</a>
+                            <a href="#"><i class="uil uil-cog"></i>Settings</a>
+                            <a href="#"><i class="uil uil-question-circle"></i>Help</a>
+                            <a href="logout"><i class="uil uil-sign-out-alt"></i>Logout</a>
+                        </div>
+                    </div>
         </div>
         </div>
     </nav>
@@ -42,35 +49,35 @@
             <div class="left">
                 <a class="profile">
                     <div class="profile-picture">
-                        <img src="/images/profile-1.jpg">
+                        <img src="../webapp/images/profile-1.jpg">
                     </div>
                     <div class="handle">
-                        <h4>Feidjel ISMAIL</h4>
+                        <h4><%=session.getAttribute("name")%></h4>
                         <p class="text-muted">
-                            @ISOU
+                            @<%=session.getAttribute("name")%>
                         </p>
                     </div>
                 </a>
                 <div class="sidebar">
-                    <a class="menu-item  " href="index.html">
+                    <a class="menu-item  " href="index.jsp">
                         <span><i class="uil uil-football"></i></span>
                         <h3>Sports</h3>
                     </a>
-                    <a class="menu-item active ">
+                    <a class="menu-item  " href="Technology.jsp">
                         <span><i class="uil uil-robot"></i></span>
                         <h3>Technologry</h3>
                     </a>
-                    <a class="menu-item  " href="art.html">
+                    <a class="menu-item  " href="art.jsp">
                         <span><i class="uil uil-palette"></i></span>
                         <h3>Art</h3>
                     </a>
 
-                    <a class="menu-item " href="explore.html">
+                    <a class="menu-item " href="explore.jsp">
                         <span><i class="uil uil-compass"></i></span>
                         <h3>Explore Video
                         </h3>
                     </a>
-                    <a class="menu-item  " id="messages-notificatons" href="inter.html">
+                    <a class="menu-item active " id="messages-notificatons">
                         <span><i class="uil uil-newspaper">
                                 <small class="notifications-count">6+</small>
                             </i></span>
@@ -84,7 +91,7 @@
                         <div class="notification-popup">
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-1.jpg">
+                                    <img src="../webapp/images/profile-1.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>Salah Ben </b> Posted new News
@@ -94,7 +101,7 @@
                             </div>
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-1.jpg">
+                                    <img src="../webapp/images/profile-1.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>samir Ben </b> Posted new News
@@ -104,7 +111,7 @@
                             </div>
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-3.jpg">
+                                    <img src="../webapp/images/profile-3.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>samir Ben </b> Posted new News
@@ -114,7 +121,7 @@
                             </div>
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-4.jpg">
+                                    <img src="../webapp/images/profile-4.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>samir Ben </b> Posted new News
@@ -124,7 +131,7 @@
                             </div>
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-1.jpg">
+                                    <img src="../webapp/images/profile-1.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>samir</b> Posted new News
@@ -134,7 +141,7 @@
                             </div>
                             <div>
                                 <div class="profile-picture">
-                                    <img src="/images/profile-2.jpg">
+                                    <img src="../webapp/images/profile-2.jpg">
                                 </div>
                                 <div class="notification-body">
                                     <b>samir Ben </b> Posted new News
@@ -148,7 +155,7 @@
                     </a>
 
 
-                    <a class="menu-item  " href="Analyses.html">
+                    <a class="menu-item  " href="Analyses.jsp">
                         <span><i class="uil uil-analysis"></i></span>
                         <h3>Analytis</h3>
                     </a>
@@ -156,17 +163,19 @@
                         <span><i class="uil uil-paint-tool"></i></span>
                         <h3>Theme</h3>
                     </a>
-                    <a class="menu-item " href="settings.html">
+                    <a class="menu-item " href="settings.jsp">
                         <span><i class="uil uil-sliders-v"></i></span>
                         <h3>Settings</h3>
                     </a>
 
                 </div>
                 <!--end of side bar------------------->
-                <label class="logout" for="create-post" onclick="openForm()"><i
-                        class="uil uil-sign-out-alt"></i></label>
-
-
+            <a href="#">
+                <button class="btn btn-primary" onclick="openForm()">
+                    Signout(<%=session.getAttribute("name")%>)
+                        <i class="uil uil-sign-out-alt"></i>
+                </button>
+            </a>
 
             </div>
             <!--middle------------------->
@@ -225,9 +234,9 @@
                                 </span>
                             </div>
                             <div class="caption">
-                                <p><b>في مارس 2022 ، تم تثبيت أكثر من 20 صرافة الية للعملات المشفرة يوميًا في الدول التي
-                                        تدعم هذه العملات . بينما يوجد بالفعل
-                                        أكثر من 36 ألف صرافة الية على مستوى العالم.
+                                <p><b> مباراة الإياب : يوم الثلاثاء القادم الساعة 20:30 مساءا بتوقيت الجزائر على ملعب
+                                        مصطفى تشاكر بالبليدة
+                                        بعد الفوز
                                     </b><br> <span class="harch-tag">#sport</span>
                                 </p>
                                 <div class=" comments text-muted">
@@ -235,7 +244,7 @@
                                 </div>
                             </div>
                             <div class="photo">
-                                <img src="/images/feed-11.jpg" alt="">
+                                <img src="../webapp/images/feed-5.jpg" alt="">
                             </div>
                             <div class="action-buttons">
                                 <div class="interaction-buttons">
@@ -248,142 +257,9 @@
                                 </div>
                             </div>
                             <div class="liked-by">
-                                <span><img src="/images/profile-8.jpg" alt=""></span>
-                                <span><img src="/images/profile-2.jpg" alt=""></span>
-                                <span><img src="/images/profile-4.jpg" alt=""></span>
-                                <p>Liked by <b>Feidjel ismail</b> and
-                                    233 other
-                                </p>
-                            </div>
-                        </div>
-                        <div class="head">
-                            <div class="user">
-                                <a href="#" class="profile-picture" onclick="openFormprofile()">
-                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
-                                </a>
-                                <div class="ingo">
-                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
-                                    <small>Bousaada- 1hour Ago </small>
-                                </div>
-                                <span class="edit">
-                                    <i class="uil uil-ellipsis-h"></i>
-                                </span>
-                            </div>
-                            <div class="caption">
-                                <p><b> واتس آب تطلق إضافة جديدة على iOS ستجنب المستخدمين مشاكل خيار Last Seen
-                                        https://bit.ly/38Zjj9X
-                                    </b><br> <span class="harch-tag">#sport</span>
-                                </p>
-                                <div class=" comments text-muted">
-                                    View By 277k Person
-                                </div>
-                            </div>
-                            <div class="photo">
-                                <img src="/images/feed-12.jpg" alt="">
-                            </div>
-                            <div class="action-buttons">
-                                <div class="interaction-buttons">
-                                    <span><i class="uil uil-heart"></i></span>
-                                    <span><i class="uil uil-comment-dots"></i></span>
-                                    <span><i class="uil uil-share-alt"></i></span>
-                                </div>
-                                <div class="bookmark">
-                                    <i class="uil uil-bookmark"></i>
-                                </div>
-                            </div>
-                            <div class="liked-by">
-                                <span><img src="/images/profile-8.jpg" alt=""></span>
-                                <span><img src="/images/profile-8.jpg" alt=""></span>
-                                <span><img src="/images/profile-8.jpg" alt=""></span>
-                                <p>Liked by <b>Feidjel ismail</b> and
-                                    233 other
-                                </p>
-                            </div>
-                        </div>
-                        <div class="head">
-                            <div class="user">
-                                <a href="#" class="profile-picture" onclick="openFormprofile()">
-                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
-                                </a>
-                                <div class="ingo">
-                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
-                                    <small>Bousaada- 1hour Ago </small>
-                                </div>
-                                <span class="edit">
-                                    <i class="uil uil-ellipsis-h"></i>
-                                </span>
-                            </div>
-                            <div class="caption">
-                                <p><b> شاهد كيف تقوم شركات عملاقة مثل جوجل بمراقب المايكروفون في اجهزتك وتسجيل كل شيء
-                                        لاستهدافك بالإعلانات الموجهة !
-                                    </b><br> <span class="harch-tag">#sport</span>
-                                </p>
-                                <div class=" comments text-muted">
-                                    View By 277k Person
-                                </div>
-                            </div>
-                            <div class="photo">
-                                <img src="/images/feed-13.jpg" alt="">
-                            </div>
-                            <div class="action-buttons">
-                                <div class="interaction-buttons">
-                                    <span><i class="uil uil-heart"></i></span>
-                                    <span><i class="uil uil-comment-dots"></i></span>
-                                    <span><i class="uil uil-share-alt"></i></span>
-                                </div>
-                                <div class="bookmark">
-                                    <i class="uil uil-bookmark"></i>
-                                </div>
-                            </div>
-                            <div class="liked-by">
-                                <span><img src="/images/profile-8.jpg" alt=""></span>
-                                <span><img src="/images/profile-7.jpg" alt=""></span>
-                                <span><img src="/images/profile-6.jpg" alt=""></span>
-                                <p>Liked by <b>Feidjel ismail</b> and
-                                    233 other
-                                </p>
-                            </div>
-                        </div>
-                        <div class="head">
-                            <div class="user">
-                                <a href="#" class="profile-picture" onclick="openFormprofile()">
-                                    <img src="images/profile-1.jpg" class="profile-picture" alt="" />
-                                </a>
-                                <div class="ingo">
-                                    <h2>El Djazair Daily - الجزائر دايلي</h2>
-                                    <small>Bousaada- 1hour Ago </small>
-                                </div>
-                                <span class="edit">
-                                    <i class="uil uil-ellipsis-h"></i>
-                                </span>
-                            </div>
-                            <div class="caption">
-                                <p><b> منصة رقمية لإنشاء منتجات مخصصة وبيعها عبر الإنترنت بنظام الطباعة حسب الطلب POD |
-                                        لا تفوتك!
-                                        https://bit.ly/3JQ7DTA
-                                    </b><br> <span class="harch-tag">#sport</span>
-                                </p>
-                                <div class=" comments text-muted">
-                                    View By 277k Person
-                                </div>
-                            </div>
-                            <div class="photo">
-                                <img src="/images/feed-14.jpg" alt="">
-                            </div>
-                            <div class="action-buttons">
-                                <div class="interaction-buttons">
-                                    <span><i class="uil uil-heart"></i></span>
-                                    <span><i class="uil uil-comment-dots"></i></span>
-                                    <span><i class="uil uil-share-alt"></i></span>
-                                </div>
-                                <div class="bookmark">
-                                    <i class="uil uil-bookmark"></i>
-                                </div>
-                            </div>
-                            <div class="liked-by">
-                                <span><img src="/images/profile-8.jpg" alt=""></span>
-                                <span><img src="/images/profile-2.jpg" alt=""></span>
-                                <span><img src="/images/profile-1.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-8.jpg" alt=""></span>
                                 <p>Liked by <b>Feidjel ismail</b> and
                                     233 other
                                 </p>
@@ -406,15 +282,16 @@
                             </div>
                             <div class="caption">
                                 <p><b>
-                                        مواصفات هاتفي Moto G62 5G و Moto G82 5G تظهر على الإنترنت </b><br> <span
-                                        class="harch-tag">#russia</span>
+                                        🔴بوتين يوقع قانونا جديدا للشركات الأجنبية لحماية معاملاتها وأصولها من العقوبات
+                                        الدولية
+                                    </b><br> <span class="harch-tag">#russia</span>
                                 </p>
                                 <div class=" comments text-muted">
                                     View By 277k Person
                                 </div>
                             </div>
                             <div class="photo">
-                                <img src="/images/feed-15.jpg" alt="">
+                                <img src="../webapp/images/feed-1.jpg" alt="">
                             </div>
                             <div class="action-buttons">
                                 <div class="interaction-buttons">
@@ -427,9 +304,9 @@
                                 </div>
                             </div>
                             <div class="liked-by">
-                                <span><img src="/images/profile-4.jpg" alt=""></span>
-                                <span><img src="/images/profile-4.jpg" alt=""></span>
-                                <span><img src="/images/profile-4.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
+                                <span><img src="../webapp/images/profile-4.jpg" alt=""></span>
                                 <p>Liked by <b>Feidjel ismail</b> and
                                     233 other
                                 </p>
@@ -459,7 +336,7 @@
                     <!--the body ------------------->
                     <div class="message">
                         <div class="news-picture ">
-                            <img src="/images/profile-8.jpg">
+                            <img src="../webapp/images/profile-8.jpg">
                         </div>
                         <div class="message-body">
                             <h5 class=".aaa">El Djazair Daily - الجزائر دايلي</h5>
@@ -470,7 +347,7 @@
                     </div>
                     <div class="message">
                         <div class="news-picture ">
-                            <img src="/images/profile-8.jpg">
+                            <img src="../webapp/images/profile-8.jpg">
                         </div>
                         <div class="message-body">
                             <h5 class=".aaa">ISMAIL - الجزائر دايلي</h5>
@@ -481,7 +358,7 @@
                     </div>
                     <div class="message">
                         <div class="news-picture ">
-                            <img src="/images/profile-8.jpg">
+                            <img src="../webapp/images/profile-8.jpg">
                         </div>
                         <div class="message-body">
                             <h5 class=".aaa">SALAH - الجزائر دايلي</h5>
@@ -501,7 +378,7 @@
                     <div class="request">
                         <div class="info">
                             <div class="profile-picture">
-                                <img src="/images/profile-1.jpg" alt="">
+                                <img src="../webapp/images/profile-1.jpg" alt="">
                             </div>
                             <div>
                                 <h5>Hajia Omar</h5>
@@ -579,7 +456,7 @@
 
         <div class="profile-card js-profile-card">
             <div class="profile-card__img">
-                <img src="/images/profile-1.jpg" alt="profile card">
+                <img src="../webapp/images/profile-1.jpg" alt="profile card">
             </div>
 
             <div class="profile-card__cnt js-profile-cnt">
@@ -884,6 +761,16 @@
 
 
     <script src="script.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" href="alert/dist/sweetalert.css">
+    <script type="text/javascript">
+        function openForm() {
+            swal("Are you sure you want to Leave?", {
+                buttons: ["cancel", true],
+            });
+        }
+
+    </script>
 </body>
 
 </html>

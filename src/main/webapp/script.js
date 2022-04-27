@@ -6,7 +6,7 @@ const messagesNotification =document.querySelector('#messages-notificatons');
 const messages= document.querySelector('.messages');
 const message=messages.querySelectorAll('.message');
 const messageSearch =document.querySelector('#message-search');
-//theme
+//theme 
 const themeModel = document.querySelector('.customize-theme');
 const theme =document.querySelector('#theme');
 const fontSizes = document.querySelectorAll(".choose-size span");
@@ -255,35 +255,13 @@ Bg3.addEventListener('click',()=>{
 
 
 /////////////////////////////////////////////////////////////////
-  const loginText = document.querySelector(".title-text .login");
-  const loginForm = document.querySelector("form.login");
-  const loginBtn = document.querySelector("label.login");
-  const signupBtn = document.querySelector("label.signup");
-  const signupLink = document.querySelector("form .signup-link a");
-  const loginmodel =document.getElementById("loginform");
-  signupBtn.onclick = () => {
-    loginForm.style.marginLeft = "-50%";
-    loginText.style.marginLeft = "-50%";
-  };
-  loginBtn.onclick = () => {
-    loginForm.style.marginLeft = "0%";
-    loginText.style.marginLeft = "0%";
-  };
-  signupLink.onclick = () => {
-    signupBtn.click();
-    return false;
-  };
-
-function openForm() {
-  loginmodel.style.display = "grid";
-}
+ 
 
 
-loginmodel.addEventListener("click", (e) => {
-  if (e.target.classList.contains("customize-theme")) {
-    loginmodel.style.display = "none";
-  }
-});
+
+
+
+
 ///////////////////////////////////////////
 const profilemodel = document.getElementById("profileform");
 function openFormprofile() {

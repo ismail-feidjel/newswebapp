@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<% if(session.getAttribute("name")==null){ response.sendRedirect("login.jsp"); } %>
+    <%@page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8" %><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -27,14 +28,19 @@
                 <input type="search" placeholder="Search for creators,news">
 
             </div>
-            <div class="create">
-                <label class="btn btn-primary" for="create-post" onclick="openForm()">Join</label>
+              <div class="dropdown">
+                        <button style="border-radius: 8%;" class="btn ">
+                            <%=session.getAttribute("name")%>
+                                <i class="uil uil-angle-down"></i>
+                        </button>
+                        <div class="dropdown-content">
 
-                <a href="#" class="profile-picture" onclick="openFormprofile()">
-                    <img src="images/profile-1.jpg" class="img-fluid user-m rounded-circle" alt="" />
-                </a>
-
-            </div>
+                            <a href="#"><i class="uil uil-user"></i>Profile</a>
+                            <a href="#"><i class="uil uil-cog"></i>Settings</a>
+                            <a href="#"><i class="uil uil-question-circle"></i>Help</a>
+                            <a href="logout"><i class="uil uil-sign-out-alt"></i>Logout</a>
+                        </div>
+                    </div>
         </div>
         </div>
     </nav>
@@ -49,32 +55,32 @@
                         <img src="/images/profile-1.jpg">
                     </div>
                     <div class="handle">
-                        <h4>Feidjel ISMAIL</h4>
+                        <h4><%=session.getAttribute("name")%></h4>
                         <p class="text-muted">
-                            @ISOU
+                            @<%=session.getAttribute("name")%>
                         </p>
                     </div>
                 </a>
                 <div class="sidebar">
-                    <a class="menu-item  " href="index.html">
+                    <a class="menu-item  " href="index.jsp">
                         <span><i class="uil uil-football"></i></span>
                         <h3>Sports</h3>
                     </a>
-                    <a class="menu-item  " href="Technology.html">
+                    <a class="menu-item  " href="Technology.jsp">
                         <span><i class="uil uil-robot"></i></span>
                         <h3>Technologry</h3>
                     </a>
-                    <a class="menu-item" href="art.html">
+                    <a class="menu-item" href="art.jsp">
                         <span><i class="uil uil-palette"></i></span>
                         <h3>Art</h3>
                     </a>
 
-                    <a class="menu-item " href="explore.html">
+                    <a class="menu-item " href="explore.jsp">
                         <span><i class="uil uil-compass"></i></span>
                         <h3>Explore Video
                         </h3>
                     </a>
-                    <a class="menu-item  " id="messages-notificatons" href="inter.html">
+                    <a class="menu-item  " id="messages-notificatons" href="inter.jsp">
                         <span><i class="uil uil-newspaper">
                                 <small class="notifications-count">6+</small>
                             </i></span>
@@ -160,18 +166,19 @@
                         <span><i class="uil uil-paint-tool"></i></span>
                         <h3>Theme</h3>
                     </a>
-                    <a class="menu-item " href="settings.html">
+                    <a class="menu-item " href="settings.jsp">
                         <span><i class="uil uil-sliders-v"></i></span>
                         <h3>Settings</h3>
                     </a>
 
                 </div>
                 <!--end of side bar-==================== -->
-                <label class="logout" for="create-post" onclick="openForm()"><i
-                        class="uil uil-sign-out-alt"></i></label>
-
-
-
+                <a href="#">
+                    <button class="btn btn-primary" onclick="openForm()">
+                        Signout(<%=session.getAttribute("name")%>)
+                            <i class="uil uil-sign-out-alt"></i>
+                    </button>
+                </a>
             </div>
             <!--middle------------------->
             <div class="middle">
@@ -752,62 +759,7 @@
 
 
     </div>
-    <div class="customize-theme" id="loginform">
-        <div class="wrapper">
-            <div class="title-text">
-                <div class="title login">
-                    LogIN Here
-                </div>
-                <div class="title signup">
-                    Create Account
-                </div>
-            </div>
-            <div class="form-container">
-                <div class="slide-container">
-                    <input type="radio" name="slide" id="login" checked>
-                    <input type="radio" name="slide" id="signup">
-                    <label for="login" class="slide login">Login</label>
-                    <label for="signup" class="slide signup">Signup</label>
-                    <div class="slider-tab"></div>
-                </div>
-                <div class="form-inner">
-                    <form action="#" class="login">
-                        <div class="field">
-                            <input type="text" placeholder="Email Address" required>
-                        </div>
-                        <div class="field">
-                            <input type="password" placeholder="Password" required>
-                        </div>
-                        <div class="pass-link">
-                            <a href="#">Forgot password?</a>
-                        </div>
-                        <div class="field btn">
-                            <input type="submit" value="Login">
-                        </div>
-                        <div class="signup-link">
-                            Not a member? <a href="">Signup now</a>
-                        </div>
-                    </form>
-                    <form action="#" class="signup">
-                        <div class="field">
-                            <input type="text" placeholder="Email Address" required>
-                        </div>
-                        <div class="field">
-                            <input type="password" placeholder="Password" required>
-                        </div>
-                        <div class="field">
-                            <input type="password" placeholder="Confirm password" required>
-                        </div>
-                        <div class="field btn">
-                            <input type="submit" value="Signup">
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-
-    </div>
+    
 
 
     <!---->
@@ -839,7 +791,16 @@
 
     <script src="script.js"></script>
 
-   
+   ript src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<link rel="stylesheet" href="alert/dist/sweetalert.css">
+<script type="text/javascript">
+    function openForm() {
+        swal("Are you sure you want to Leave?", {
+            buttons: ["cancel", true],
+        });
+    }
+
+</script>
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 
